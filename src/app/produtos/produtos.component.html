@@ -1,4 +1,4 @@
-<mat-grid-list cols="1" rowHeight="4:2">
+<mat-grid-list cols="1" rowHeight="7:3">
   <!-- <mat-grid-tile
       *ngFor="let tile of tiles"
       [colspan]="tile.cols"
@@ -7,12 +7,16 @@
     {{tile.text}}
   </mat-grid-tile> -->
 
-  <mat-grid-tile-header><h1>Visualizar Produtos do Estoque</h1></mat-grid-tile-header>
+  <mat-grid-tile-header>
+    <h1>Produtos</h1>
+  </mat-grid-tile-header>
+
   <!-- <mat-grid-tile>Título</mat-grid-tile> -->
   <!-- <mat-grid-tile class="filtro">Filtro</mat-grid-tile> -->
+  
   <mat-grid-tile>
     <app-produtos-lista></app-produtos-lista>
   </mat-grid-tile>
   
-  <mat-grid-tile-footer><small>Todos os direitos reservados - 2019</small></mat-grid-tile-footer>
+  <!-- <mat-grid-tile-footer><small>Todos os direitos reservados - 2019</small></mat-grid-tile-footer> -->
 </mat-grid-list>

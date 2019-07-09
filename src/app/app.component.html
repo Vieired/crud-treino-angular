@@ -21,10 +21,27 @@
 
 <mat-toolbar color="primary">
   My App
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span>Sair</span>
 </mat-toolbar>
 
-<!-- <div class="mat-app-background basic-container"> -->
-  <app-menu-lateral></app-menu-lateral>
-<!-- </div> -->
+<div class="mat-app-background basic-container">
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer opened #drawer class="example-sidenav" mode="side">
+      <button type="button" mat-button (click)="drawer.toggle()"><-></button>
+      <button type="button" mat-button color="primary" route="/clientes">Clientes</button>
 
-<router-outlet></router-outlet>
+      <button mat-flat-button>Basic</button>
+      <button mat-flat-button color="primary">Primary</button>
+
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <br/><br/><br/><br/>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+

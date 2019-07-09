@@ -1,32 +1,18 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-grid-list cols="1" rowHeight="4:2">
+  <!-- <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile> -->
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <mat-grid-tile-header><h1>Visualizar Produtos do Estoque</h1></mat-grid-tile-header>
+  <!-- <mat-grid-tile>Título</mat-grid-tile> -->
+  <!-- <mat-grid-tile class="filtro">Filtro</mat-grid-tile> -->
+  <mat-grid-tile>
+    <app-produtos-lista></app-produtos-lista>
+  </mat-grid-tile>
+  
+  <mat-grid-tile-footer><small>Todos os direitos reservados - 2019</small></mat-grid-tile-footer>
+</mat-grid-list>

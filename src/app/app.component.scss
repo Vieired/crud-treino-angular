@@ -1,7 +1,36 @@
 .example-icon {
     padding: 0 14px;
-  }
+}
   
-  .example-spacer {
+.example-spacer {
     flex: 1 1 auto;
-  }
+}
+
+
+
+/* SIDENAV */
+.example-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+    border: 1px solid #555;
+}
+.example-sidenav {
+    padding: 20px;
+    // padding-right: 0;
+    width: 200px;
+    text-align: right;
+}
+
+
+
+/* TOOLBAR */
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+mat-drawer {
+    transform: translate3d(-70%,0,0);
+    visibility: visible !important;
+}

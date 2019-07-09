@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
+import { ProdutosListaComponent } from './produtos/produtos-lista/produtos-lista.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
     ProdutosComponent,
     ClientesComponent,
     DashboardComponent,
-    MenuLateralComponent
+    ProdutosListaComponent
   ],
   imports: [
+    MatGridListModule,
     MatTableModule,
     BrowserAnimationsModule,
     MatToolbarModule,

@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface PeriodicElement {
   name: string;
@@ -43,8 +44,52 @@ export class ProdutosListaComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  constructor(public dialog: MatDialog) { }
+
+  adicionar() {
+    let dialogRef = this.dialog.open(GenericDialogComponent, {
+      height: '400px',
+      width: '600px',
+    });    
+  }
+
+
+
+
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+}
+
+
+
+
+
+@Component({
+  selector: 'app-generic-dialog',
+  template: `
+    <h1 mat-dialog-title>Adicionar Produto</h1>
+    <div mat-dialog-content>
+      <p>What's your favorite animal?</p>
+      <mat-form-field>
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No Thanks</button>
+      <button mat-button cdkFocusInitial>Ok</button>
+    </div>
+  `
+})
+export class GenericDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<GenericDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

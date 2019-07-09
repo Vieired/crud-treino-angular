@@ -9,22 +9,28 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProdutosListaComponent } from './produtos/produtos-lista/produtos-lista.component';
+import { ProdutosListaComponent, GenericDialogComponent } from './produtos/produtos-lista/produtos-lista.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
+    GenericDialogComponent,
     AppComponent,
     ProdutosComponent,
     ClientesComponent,
     DashboardComponent,
     ProdutosListaComponent
   ],
+  entryComponents: [GenericDialogComponent],
   imports: [
+    MatInputModule,
+    MatDialogModule,
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,

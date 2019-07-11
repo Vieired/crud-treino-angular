@@ -17,6 +17,8 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProdutosListaComponent, GenericDialogComponent } from './produtos/produtos-lista/produtos-lista.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
+import { ProdutosService } from './produtos/produtos.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ProdutosComponent,
     ClientesComponent,
     DashboardComponent,
-    ProdutosListaComponent
+    ProdutosListaComponent,
+    ProdutosFormComponent
   ],
   entryComponents: [GenericDialogComponent],
   imports: [
@@ -42,7 +45,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProdutosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

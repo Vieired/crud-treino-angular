@@ -1,3 +1,34 @@
+<h1>EDITAR PRODUTO</h1>
 <p>produtos-form works!</p>
-<h1>ID: {{ id }}</h1>
-<h1>Produto: {{ produto.name }}</h1>
+<h3>ID: {{ id }}</h3>
+<!-- <h3>Produto: {{ produto.name }}</h3> -->
+
+<form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
+    <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput name="campoId" [(ngModel)]="produto.id" readonly>
+    </mat-form-field>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Produto</mat-label>
+            <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
+            <input matInput placeholder="Nome do produto" name="campoNome" [(ngModel)]="produto.name">
+            <!-- <input matInput placeholder="Nome do produto" name="campoProduto" [(ngModel)]="produto.descricao"> -->
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Observações</mat-label>
+            <input matInput placeholder="Observações" value="" name="campoObservacoes" [(ngModel)]="produto.symbol">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </p>    
+
+    <p>
+        <button mat-raised-button color="primary">Salvar</button>
+    </p>
+</form>

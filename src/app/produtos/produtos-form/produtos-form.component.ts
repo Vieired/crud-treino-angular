@@ -3,17 +3,28 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs'; // na aula 54 da Loiane é "rxjs/RX"
 
 import { ProdutosService } from '../produtos.service';
+import { Form } from '@angular/forms';
+import { Produto } from '../produtos.model';
 
 @Component({
   selector: 'app-produtos-form',
   templateUrl: './produtos-form.component.html',
   styleUrls: ['./produtos-form.component.scss']
 })
+
+// export interface Produto {
+//   id?: number;
+//   descricao?: string;
+//   observacao?: string;
+// }
+
 export class ProdutosFormComponent implements OnInit {
 
   id: number;
   inscricao: Subscription; // como o "params" do objeto "route" retorna um BehaviorSubject (um objeto de inscrição), então posso criar uma variável do tipo de inscrição para receber o "route.params"
   produto: any;
+  // produto: Produto;
+
 
   // classe ActivatedRoute injetada no construtor para ao inicializar e instanciar a classe ProdutosFormComponent já obter possíveis parâmetros que existirem na URL
   constructor(
@@ -22,6 +33,12 @@ export class ProdutosFormComponent implements OnInit {
   ) {
     // this.id = this.route.snapshot.params['id']; // dois problemas nesta forma de fazer (aula 54 da Loiane)
     // console.log(this.id);
+  }
+
+  submeterFormulario(formulario) {
+    console.log(formulario);
+
+    this.produtosService.setProduto(formulario.value);
   }
 
   ngOnInit() {

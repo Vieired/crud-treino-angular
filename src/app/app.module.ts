@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './clientes/clientes.component';
@@ -32,6 +33,7 @@ import { ProdutosService } from './produtos/produtos.service';
   ],
   entryComponents: [GenericDialogComponent],
   imports: [
+    FormsModule,
     MatInputModule,
     MatDialogModule,
     MatPaginatorModule,

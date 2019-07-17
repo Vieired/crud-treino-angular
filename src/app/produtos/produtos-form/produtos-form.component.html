@@ -13,10 +13,11 @@
         <mat-form-field appearance="outline">
             <mat-label>Produto</mat-label>
             <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
-            <input matInput placeholder="Nome do produto" name="campoNome" [(ngModel)]="produto.name">
-            <!-- <input matInput placeholder="Nome do produto" name="campoProduto" [(ngModel)]="produto.descricao"> -->
+            <input matInput placeholder="Nome do produto" 
+                id="campoNome" name="campoNome" [(ngModel)]="produto.name" 
+                required #nome="ngModel"> <!-- input variável local "nome" -->
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <mat-hint>Hint</mat-hint>
+            <mat-hint *ngIf="!nome.valid && nome.touched">Campo Nome é obrigatório</mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
         </mat-form-field>
     </p>
 
@@ -29,6 +30,6 @@
     </p>    
 
     <p>
-        <button mat-raised-button color="primary">Salvar</button>
+        <button [disabled]="!formulario.valid" mat-raised-button color="primary">Salvar</button>
     </p>
 </form>

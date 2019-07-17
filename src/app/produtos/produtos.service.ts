@@ -48,7 +48,6 @@ export class ProdutosService {
     // isto em condições reais seria um update no banco via query
     for(let i=0 ; i<this.PRODUTOS.length ; i++) {
       if(this.PRODUTOS[i].id == produto.campoId) {
-        debugger;
         this.PRODUTOS[i].name = produto.campoNome;
         this.PRODUTOS[i].symbol = produto.campoObservacoes;
       }

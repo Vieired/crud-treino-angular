@@ -24,6 +24,7 @@ export class ProdutosFormComponent implements OnInit {
   inscricao: Subscription; // como o "params" do objeto "route" retorna um BehaviorSubject (um objeto de inscrição), então posso criar uma variável do tipo de inscrição para receber o "route.params"
   produto: any;
   // produto: Produto;
+  form: Form;
 
 
   // classe ActivatedRoute injetada no construtor para ao inicializar e instanciar a classe ProdutosFormComponent já obter possíveis parâmetros que existirem na URL
@@ -33,12 +34,33 @@ export class ProdutosFormComponent implements OnInit {
   ) {
     // this.id = this.route.snapshot.params['id']; // dois problemas nesta forma de fazer (aula 54 da Loiane)
     // console.log(this.id);
+    // this.id = 0;
+    // this.produto = null;
+    this.produto = {
+      id: 0,
+      name: "",
+      symbol: ""
+    }    
   }
 
-  submeterFormulario(formulario) {
-    console.log(formulario);
+  // submeterFormulario(formulario?) {
+  //   if(formulario) {
+  //     this.produtosService.inserirOuAtualizar(formulario.value);
+  //     console.table("Formulário: " + formulario.value);
+  //   }
+  //   else {
+  //     this.produtosService.inserirOuAtualizar();
+  //     console.table("Formulário novo!");
+  //   }
+  // }
+  submeterFormulario() {
+    let produto = this.produto;
+    console.table(produto);
+    this.produtosService.inserirOuAtualizar(produto);
+  }
 
-    this.produtosService.setProduto(formulario.value);
+  teste() {
+    alert("testezim");
   }
 
   ngOnInit() {
@@ -46,11 +68,19 @@ export class ProdutosFormComponent implements OnInit {
     //   this.id = params['id'];
     //   this.produtos = this.produtosService.getProduto(/*this.id*/5);
     // });
-
     this.inscricao = this.route.params.subscribe(
       (params: any) => {
-        this.id = params['id'];
-        this.produto = this.produtosService.getProduto(this.id);
+        if(params['id']) {
+          this.id = params['id']; // pega o id da URL
+          this.produto = this.produtosService.getProduto(this.id); // pega o objeto inteiro
+        }
+        // else {
+        //   this.produto = {
+        //     id: 0,
+        //     name: "",
+        //     symbol: ""
+        //   }
+        // }
       }
     );
   }

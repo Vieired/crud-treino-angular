@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ProdutosService {
   
   private PRODUTOS: any = [
-    {acao:null, id: 20, position: 1, name: 'Ed Hydrogen', weight: 1.0079, symbol: 'H'},
+    {acao:null, id: 20, position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {acao:null, id: 19, position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
     {acao:null, id: 18, position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
     {acao:null, id: 17, position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
@@ -53,4 +53,62 @@ export class ProdutosService {
       }
     }
   }
+
+  obterNovoId() {
+    let aux = [];
+    for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+      aux.push( this.PRODUTOS[i].id );
+    }
+    return Math.max.apply(null, aux) + 1;
+  }
+
+  obterNovoPosition() {
+    let aux = [];
+    for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+      aux.push( this.PRODUTOS[i].position );
+    }
+    return Math.max.apply(null, aux) + 1;
+  }  
+
+  // inserirOuAtualizar(produto?: any) {
+  //   debugger;
+  //   if(!produto || produto.campoId == 0) { // se o produto não existe ou tem id 0, então crie um registro novo
+  //     let aux = {acao:null, id: this.obterNovoId(), 'position': this.obterNovoPosition(), 'name': produto.campoNome, weight: 1.0079, 'symbol': produto.campoObservacoes};
+  //     console.table(aux);
+  //     this.PRODUTOS.push(aux);
+  //   }
+  //   else { // se o produto existe então adicione ele
+  //     for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+  //       if(this.PRODUTOS[i].id == produto.campoId) {
+  //         this.PRODUTOS[i].name = produto.campoNome;
+  //         this.PRODUTOS[i].symbol = produto.campoObservacoes;
+  //       }
+  //     }      
+  //   }
+  // }
+
+  inserirOuAtualizar(produto: any) {
+    debugger;
+    if(produto.id == 0) { // se o produto tem id 0, então adicione ele como um novo registro
+      let aux = {
+        acao: null, 
+        id: this.obterNovoId(), 
+        position: this.obterNovoPosition(), 
+        name: produto.name, 
+        weight: 1.0079, 
+        symbol: produto.symbol
+      };
+      this.PRODUTOS.push(aux);
+      console.table(aux);
+    }
+    else { // se o produto tem id maior que 0 então atualize ele
+      for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+        if(this.PRODUTOS[i].id == produto.campoId) {
+          this.PRODUTOS[i].name = produto.campoNome;
+          this.PRODUTOS[i].symbol = produto.campoObservacoes;
+        }
+      }      
+    }
+    console.table(this.PRODUTOS);
+  }  
 }

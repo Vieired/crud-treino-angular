@@ -1,6 +1,6 @@
 <h1>EDITAR PRODUTO</h1>
-<p>produtos-form works!</p>
-<h3>ID: {{ id }}</h3>
+<!-- <p>produtos-form works!</p> -->
+<!-- <h3>ID: {{ id }}</h3> -->
 <!-- <h3>Produto: {{ produto.name }}</h3> -->
 
 <form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
@@ -17,7 +17,7 @@
                 id="campoNome" name="campoNome" [(ngModel)]="produto.name" 
                 required #nome="ngModel"> <!-- input variável local "nome" -->
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <mat-hint *ngIf="!nome.valid && nome.touched">Campo Nome é obrigatório</mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
+            <mat-hint *ngIf="nome && !nome.valid && nome.touched">Campo Nome é obrigatório</mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
         </mat-form-field>
     </p>
 

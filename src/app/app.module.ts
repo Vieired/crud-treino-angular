@@ -11,7 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './clientes/clientes.component';
@@ -21,6 +21,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
 import { ProdutosService } from './produtos/produtos.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ContatoComponent } from './contato/contato.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,14 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ClientesComponent,
     DashboardComponent,
     ProdutosListaComponent,
-    ProdutosFormComponent
+    ProdutosFormComponent,
+    ContatoComponent
   ],
   entryComponents: [GenericDialogComponent],
   imports: [
-    NgMultiSelectDropDownModule.forRoot(),
+    HttpClientModule, // módulo para trabalhar com requisições HTTP.
+    ReactiveFormsModule, // necessário para trabalhar com fomrulários reativos (DataDriven)
+    NgMultiSelectDropDownModule.forRoot(), // plugin de dropdown multiselect
     FormsModule,
     MatInputModule,
     MatDialogModule,

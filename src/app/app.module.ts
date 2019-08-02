@@ -20,6 +20,7 @@ import { ProdutosListaComponent, GenericDialogComponent } from './produtos/produ
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
 import { ProdutosService } from './produtos/produtos.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProdutosService } from './produtos/produtos.service';
   ],
   entryComponents: [GenericDialogComponent],
   imports: [
+    NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatInputModule,
     MatDialogModule,

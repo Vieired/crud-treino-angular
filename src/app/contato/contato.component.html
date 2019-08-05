@@ -7,20 +7,60 @@
             <mat-label>Nome</mat-label>
         <input formControlName="nome"
                 matInput placeholder="Digite o nome" value="">
+        <!-- <mat-error *ngIf="nome.invalid">{{getErrorMessage(nome)}}</mat-error> -->
+        <!-- <mat-error *ngIf="validarCampo('nome')">Erro!</mat-error> -->
+        <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
+
     <br>
     <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
         <input formControlName="email"
                 matInput placeholder="Digite um e-mail" value="">
     </mat-form-field>
+
     <br>
     <mat-form-field class="example-full-width">
         <textarea formControlName="obs"
                     matInput placeholder="Digite uma observação"></textarea>
     </mat-form-field>
-    <div class="example-button-row">
-        <button type="submit" mat-raised-button color="primary">Enviar</button>
-        <a mat-raised-button routerLink="." (click)="resetar()">Cancelar</a>
+
+    <br>
+    <div formGroupName="endereco">
+        <mat-form-field class="example-full-width">
+                <mat-label>Rua</mat-label>
+            <input formControlName="rua"
+                    matInput placeholder="Rua" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+                <mat-label>Número</mat-label>
+            <input formControlName="numero"
+                    matInput placeholder="Número" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+                <mat-label>Bairro</mat-label>
+            <input formControlName="bairro"
+                    matInput placeholder="Bairro" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+                <mat-label>Cidade</mat-label>
+            <input formControlName="cidade"
+                    matInput placeholder="cidade" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+                <mat-label>UF</mat-label>
+            <input formControlName="uf"
+                    matInput placeholder="UF" value="">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+                <mat-label>CEP</mat-label>
+            <input formControlName="cep"
+                    matInput placeholder="CEP" value="">
+        </mat-form-field>
     </div>
+
+    <div class="example-button-row">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!formulario.valid">Enviar</button>
+        <a mat-raised-button routerLink="." (click)="resetar()">Cancelar</a>
+    </div>    
 </form>

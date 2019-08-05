@@ -36,11 +36,17 @@ export class ContatoComponent implements OnInit {
       email: amoeba@ameba.com.br
       obs: Agora vamos ao teste
     */
+
+    // this.formulario.get('nome').setValue('Testezim');
   }
 
   resetar() {
    this.formulario.reset(); 
   }
+
+  // validarCampo(campo: string) {
+  //   console.log(campo);
+  // }
 
   ngOnInit() {
     /* forma mais verbosa de fazer o mesmo de baixo */
@@ -52,6 +58,16 @@ export class ContatoComponent implements OnInit {
     this.formulario = this.FormBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: [null, [Validators.required, Validators.email]],
+
+      endereco: this.FormBuilder.group({
+        rua: [null, Validators.required],
+        numero: [null, Validators.required],
+        bairro: [null, Validators.required],
+        cidade: [null, Validators.required],
+        uf: [null, Validators.required],
+        cep: [null]
+      }),
+
       obs: [null]
     });
   }

@@ -23,6 +23,7 @@ import { ProdutosService } from './produtos/produtos.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ContatoComponent } from './contato/contato.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule, // necessário para trabalhar com fomrulários reativos (DataDriven)
     NgMultiSelectDropDownModule.forRoot(), // plugin de dropdown multiselect
     FormsModule,
+    MatSelectModule,
     MatInputModule,
     MatDialogModule,
     MatPaginatorModule,

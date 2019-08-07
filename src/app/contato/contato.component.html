@@ -29,6 +29,12 @@
     <br>
     <div formGroupName="endereco">
         <mat-form-field class="example-full-width">
+            <mat-label>CEP</mat-label>
+            <!-- <mat-input formControlName="cep" placeholder="CEP"></mat-input> -->
+            <input formControlName="cep" matInput placeholder="CEP">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
             <mat-label>Rua</mat-label>
             <input formControlName="rua"
                     matInput placeholder="Rua" value="">
@@ -51,16 +57,30 @@
         <mat-form-field class="example-full-width">
             <mat-label>UF</mat-label>
             <mat-select formControlName="uf">
-                    <mat-option *ngFor="let estado of estados" value="{{ estado.id }}">{{ estado.sigla }}</mat-option>
-                    <!-- <mat-option *ngFor="let estado of estados | async" value="{{ estado.sigla }}">{{ estado.nome }}</mat-option> -->
+                <!-- <mat-option *ngFor="let estado of estados" value="{{ estado.id }}">{{ estado.sigla }}</mat-option> -->
+                <mat-option *ngFor="let estado of estados | async" value="{{ estado.sigla }}">{{ estado.nome }}</mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>CEP</mat-label>
-            <input formControlName="cep"
-                    matInput placeholder="CEP" value="">
-        </mat-form-field>
     </div>
+
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Cargo</mat-label>
+        <mat-select formControlName="cargo" id="cargo" [compareWith]="compararCargos">
+            <mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</mat-option>
+            <!-- <option mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</option> -->
+            <!-- <mat-option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</mat-option> -->
+            <!-- <option *ngFor="let cargo of cargos" value="cargo">{{ cargo.desc }}</option> -->
+            <!-- <option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</option> -->
+            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
+            <!-- <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</option> -->
+            <!-- <option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</option> -->
+            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
+            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</mat-option> -->
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="setarCargo()">Setar Cargo</button>
+    
 
     <div class="example-button-row">
         <!-- <button type="submit" mat-raised-button color="primary" [disabled]="!formulario.valid">Enviar</button> -->

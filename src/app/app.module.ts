@@ -5,13 +5,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './clientes/clientes.component';
@@ -20,10 +23,7 @@ import { ProdutosListaComponent, GenericDialogComponent } from './produtos/produ
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
 import { ProdutosService } from './produtos/produtos.service';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ContatoComponent } from './contato/contato.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [

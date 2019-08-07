@@ -1,15 +1,20 @@
 import { Injectable, NgModule } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { EstadoBr } from '../models/estado-br.model';
-import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DropdownService {
-  estados: EstadoBr;
   constructor(private http: HttpClient) { }
+
+  getCargos() {
+    return [
+      { nome: "Dev", nivel: "Junior", desc: "Dev Jr" },
+      { nome: "Dev", nivel: "Pleno", desc: "Dev Pl" },
+      { nome: "Dev", nivel: "Senior", desc: "Dev Sr" }
+    ];
+  }
 
   getEstadosBrGet() {
     return this.http.get('/assets/dados/estadosbr.json'); // ao invés de usar o json diretamente aqui, ele está em um arquivo separado conforme sugere as boas práticas

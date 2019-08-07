@@ -38,16 +38,17 @@
 
       <ul>
         <li>
-            <a mat-button routerLink="produtos">Produtos</a>
+            <a mat-button routerLink="produtos" routerLinkActive="ativo">Produtos</a> <!-- routerLinkActive="ativo" serve para aplicar a classe "ativo" se o link em questão estiver ativo -->
         </li>
         <li>
-            <a mat-button routerLink="dashboard">Dashboard</a>
+            <a mat-button routerLink="dashboard" routerLinkActive="ativo">Dashboard</a>
         </li>
         <li>
-            <a mat-button routerLink="clientes">Clientes</a>
+            <a mat-button routerLink="clientes" routerLinkActive="ativo">Clientes</a>
         </li>
         <li>
-            <a mat-button routerLink="contato">Contato</a>
+            <!-- <a mat-button routerLinkActive="ativo" (click)="marcarOpcao(elemContato)" #varContato [ngClass]="{'ativo' : tocado}">Contato</a> -->
+            <a mat-button routerLink="contato" routerLinkActive="ativo">Contato</a>
         </li>        
         <li>
             <!-- <a mat-button routerLink=".">Contato</a> -->

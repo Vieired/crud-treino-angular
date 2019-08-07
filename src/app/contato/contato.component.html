@@ -66,6 +66,7 @@
     <br>
     <mat-form-field class="example-full-width">
         <mat-label>Cargo</mat-label>
+        <!-- Dropdown com objeto complexo como valor -->
         <mat-select formControlName="cargo" id="cargo" [compareWith]="compararCargos">
             <mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</mat-option>
             <!-- <option mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</option> -->

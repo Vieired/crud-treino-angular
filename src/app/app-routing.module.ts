@@ -9,12 +9,13 @@ import { ContatoComponent } from './contato/contato.component';
 
 
 const routes: Routes = [
+  /* Todas as rotas que forem hardcode precisam ser avaliadas primeiro, senão pode dar conflito de rotas. As rotas com id (rotas dinâmicas) como a "produtos/produtosform/:id" precisam ficar por último */
   { path: 'dashboard', component: DashboardComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'produtos', component: ProdutosComponent },
-  { path: 'produtos/produtosform/:id', component: ProdutosFormComponent },
   { path: 'contato', component: ContatoComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'ProdutosComponent' }
+  { path: '', pathMatch: 'full', redirectTo: 'ProdutosComponent' },
+  { path: 'produtos/produtosform/:id', component: ProdutosFormComponent }
 ];
 
 @NgModule({

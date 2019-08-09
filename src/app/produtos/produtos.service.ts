@@ -100,6 +100,7 @@ export class ProdutosService {
       };
       this.PRODUTOS.push(aux);
       console.table(aux);
+      // alert("Registro Adicionado com Sucesso.");
     }
     else { // se o produto tem id maior que 0 então atualize ele
       for(let i=0 ; i<this.PRODUTOS.length ; i++) {

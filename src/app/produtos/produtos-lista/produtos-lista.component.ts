@@ -41,6 +41,7 @@ export class ProdutosListaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(x => this.atualizarGrid());    
+    // alert("Registro Adicionado com Sucesso.");
   }
 
   editar() {
@@ -80,6 +81,9 @@ export class ProdutosListaComponent implements OnInit {
     </div>
     <div mat-dialog-content>
       <app-produtos-form #appProdutosForm></app-produtos-form>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque odio tortor, tempor et maximus semper, egestas scelerisque ipsum. Suspendisse eu tellus fermentum, consectetur eros ut, maximus mi. Etiam tempor urna ut augue molestie, ut porttitor velit luctus. Pellentesque vulputate consequat arcu, vel cursus quam tincidunt ut. Quisque vitae nulla at elit consectetur condimentum. Nulla sed massa purus. Phasellus ornare, orci vitae consectetur vestibulum, velit tortor mattis purus, non luctus magna nisi non risus. Nulla purus lectus, tempus sit amet sapien eget, dapibus cursus lacus. Integer leo diam, semper egestas magna eu, porta semper orci. In a fringilla dolor. Nam et felis tempus, lacinia erat ac, dictum lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+      <p>Nulla sit amet erat facilisis, feugiat sem in, suscipit tellus. In non tempor ex. Nulla sed augue iaculis nisl feugiat varius eget ac lectus. Etiam quis mauris dolor. Sed nisi libero, scelerisque quis molestie sed, venenatis eget lacus. Aliquam vel bibendum enim. Proin efficitur ut felis id ultricies. Nam in egestas ipsum, ac interdum mi. Quisque vitae semper velit. Donec mollis est nulla, vel varius urna tempus ac. Donec congue orci non dolor mattis interdum. Fusce vel urna id leo auctor pulvinar. Proin a nulla eget felis congue suscipit et in metus.</p>
+      </p>Ut viverra ipsum lacus, et imperdiet nibh mollis non. Vestibulum vitae iaculis enim, eu sollicitudin urna. Nam lacus quam, dictum id leo quis, dignissim varius nibh. Proin pretium orci in venenatis finibus. Proin rhoncus eleifend augue in maximus. Proin risus nisi, egestas ac purus ac, interdum dapibus neque. Donec ultrices orci id mauris tincidunt, a imperdiet nisi suscipit.</p>
     </div>
     <div mat-dialog-actions>
       <!--button mat-button (click)="onNoClick()">Cancelar</button-->

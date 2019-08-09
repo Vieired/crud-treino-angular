@@ -33,6 +33,7 @@ export class ContatoComponent implements OnInit {
         .subscribe(dados => { 
                               console.log(dados); 
                               this.formulario.reset; 
+                              alert("Registro Adicionado com Sucesso.");
                             }, (error: any) => alert('erro') );
     }
     else {

@@ -22,6 +22,10 @@ mat-drawer.example-sidenav {
     // visibility: visible !important;
 }
 
+// mat-drawer.example-sidenav ul {
+//     text-decoration: none !important;
+// }
+
 
 
 /* NAV TOOLBAR */
@@ -32,9 +36,10 @@ mat-drawer.example-sidenav {
 }
 
 
-// .ativo {
-//     background-color: red;
-// }
+.ativo {
+    background-color: #673ab7;
+    color: #fff;
+}
 
 mat-drawer-content {
     display: flex;

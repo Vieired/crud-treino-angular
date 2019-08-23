@@ -22,13 +22,14 @@
 <!-- menu superior -->
 <mat-toolbar color="primary" class="">
   <span class="puxador-wrap">
-    <button mat-fab color="primary" type="button" (click)="drawer.toggle()" class="puxador">
+    <!-- <button mat-fab color="primary" type="button" (click)="drawer.toggle()" class="puxador">
         <mat-icon aria-hidden="false" aria-label="Example home icon">< ></mat-icon>
-    </button>
+    </button> -->
+    <button mat-fab color="primary" type="button" (click)="navService.openNav()" class="puxador">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">< ></mat-icon>
+    </button>    
   </span>
-  <span>
-    &nbsp; Logotipo
-  </span>
+  <span>&nbsp; Logotipo</span>
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
   <span>Sair</span>
@@ -36,13 +37,17 @@
 
 
 
-<mat-drawer-container class="example-container" autosize [hasBackdrop]="false">
 
-  <!-- menu lateral -->
+
+
+<!-- <mat-drawer-container class="example-container" autosize [hasBackdrop]="false">
+
+  // menu lateral singelo
+  // routerLinkActive="ativo" serve para aplicar a classe "ativo" se o link em questão estiver ativo
   <mat-drawer opened #drawer class="example-sidenav" mode="side">
     <ul>
       <li>
-          <a mat-button routerLink="produtos" routerLinkActive="ativo">Produtos</a> <!-- routerLinkActive="ativo" serve para aplicar a classe "ativo" se o link em questão estiver ativo -->
+          <a mat-button routerLink="produtos" routerLinkActive="ativo">Produtos</a>
       </li>
       <li>
           <a mat-button routerLink="dashboard" routerLinkActive="ativo">Dashboard</a>
@@ -51,11 +56,9 @@
           <a mat-button routerLink="clientes" routerLinkActive="ativo">Clientes</a>
       </li>
       <li>
-          <!-- <a mat-button routerLinkActive="ativo" (click)="marcarOpcao(elemContato)" #varContato [ngClass]="{'ativo' : tocado}">Contato</a> -->
           <a mat-button routerLink="contato" routerLinkActive="ativo">Contato</a>
       </li>        
       <li>
-          <!-- <a mat-button routerLink=".">Contato</a> -->
           <a mat-raised-button routerLink=".">Link</a>
       </li>
     </ul>
@@ -64,9 +67,29 @@
     <br/><br/><br/><br/>
   </mat-drawer>
 
-  <!-- conteúdo -->
+  // conteúdo
   <mat-drawer-content>
       <router-outlet></router-outlet>
   </mat-drawer-content>
 
-</mat-drawer-container>
+</mat-drawer-container> -->
+
+
+
+ 
+  
+  
+
+<mat-sidenav-container class="example-container" autosize [hasBackdrop]="false">
+
+  <!-- // menu lateral com collapse -->
+  <mat-sidenav #appDrawer mode="over" opened="true">
+    <mat-nav-list>
+      <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+    
+  <!-- // conteúdo -->
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

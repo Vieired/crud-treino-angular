@@ -22,4 +22,11 @@ export class NavService {
   public openNav() {
     this.appDrawer.open();
   }
+
+  public toggleNav() {
+    if(this.appDrawer.opened)
+      this.appDrawer.close();
+    else
+      this.appDrawer.open();
+  }
 }

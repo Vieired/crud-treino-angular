@@ -5,16 +5,17 @@
   flex-direction: column;
   outline: none;
   width: 100%;
+  // background-color: #673ab7;
 
   .mat-list-item.active {
     // background-color: mat-color($app-primary, 50);
-    background-color: blue
+    background-color: #531ab8;
   }
   &:hover,
   &:focus {
     >.mat-list-item:not(.expanded) {
     //   background-color: mat-color($app-primary, 100) !important;
-        background-color: red
+      background-color: #5d28bb;
     }
   }
 }
@@ -23,6 +24,7 @@
   padding: 8px 0;
   display: flex;
   width: auto;
+  color: #deccff;
 
   .routeIcon {
     margin-right: 40px;

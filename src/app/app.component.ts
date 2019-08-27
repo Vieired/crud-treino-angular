@@ -19,12 +19,12 @@ export class AppComponent implements AfterViewInit {
   navItems: NavItem[] = [
     {
       displayName: 'Produtos',
-      iconName: 'person',
+      iconName: 'devices_other',
       route: 'produtos'
     },    
     {
       displayName: 'Dashboard',
-      iconName: 'group',
+      iconName: 'dashboard',
       route: 'dashboard'
     },
     {
@@ -33,24 +33,24 @@ export class AppComponent implements AfterViewInit {
       children: [
         {
           displayName: 'Produtos',
-          iconName: 'group',
+          iconName: 'devices_other',
           route: 'produtos'
         },
         {
           displayName: 'Dashboard',
-          iconName: 'group',
+          iconName: 'dashboard',
           route: 'dashboard'
         },
         {
           displayName: 'Clientes',
-          iconName: 'group',
+          iconName: 'person',
           route: 'clientes'
         },                        
       ]
     },
     {
       displayName: 'Contato',
-      iconName: 'star_rate',
+      iconName: 'phone',
       route: 'contato'
     }
   ];

@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'contato', component: ContatoComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'ProdutosComponent' },
+  // { path: '', pathMatch: 'full', redirectTo: 'ProdutosComponent' },
+  { path: '', pathMatch: 'full', redirectTo: 'produtos' },
   { path: 'produtos/produtosform/:id', component: ProdutosFormComponent }
 ];
 

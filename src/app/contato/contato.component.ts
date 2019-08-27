@@ -18,11 +18,12 @@ export class ContatoComponent implements OnInit {
   // estados: Observable<EstadoBr[]>;
   estados: any;
   cargos: any;
+  tecnologias: any;
 
   constructor(
     private FormBuilder: FormBuilder,
     private http: HttpClient,
-    private dropdownService: DropdownService // injetando o serviço que provê uma lista de estados brasileiros
+    private dropdownService: DropdownService // injetando o serviço que provê uma lista de estados brasileiros, entre outras listas
     ) { }
     
   onSubmit() {
@@ -76,6 +77,11 @@ export class ContatoComponent implements OnInit {
     this.formulario.get('cargo').setValue(cargo);
   }
 
+  setarTecnologia() {
+    const tec = [{ nome: 'javascript', desc: 'JavaScript' }, { nome: 'typescript', desc: 'TypeScript' }];
+    this.formulario.get('tecnologia').setValue(tec);
+  }  
+
   compararCargos(obj1, obj2) {
     return obj1 && obj2 ? (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel) : obj1 === obj2;
   }
@@ -99,7 +105,8 @@ export class ContatoComponent implements OnInit {
         uf: [null, Validators.required],
         cep: [null]
       }),
-      cargo: [null]
+      cargo: [null],
+      tecnologia: [null]
     });
 
     /* Preenchimento da dropdown UF */
@@ -115,6 +122,8 @@ export class ContatoComponent implements OnInit {
     /* Preenchimento da dropdown Cargo */
     this.cargos = this.dropdownService.getCargos();
     /* Fim preenchimento da dropdown Cargo */
+
+    this.tecnologias = this.dropdownService.getTecnologias();
   }
 
 }

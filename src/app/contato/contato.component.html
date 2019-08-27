@@ -82,6 +82,15 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="setarCargo()">Setar Cargo</button>
     
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Tecnologias</mat-label>
+        <!-- Dropdown multiselect com objeto complexo como valor -->
+        <mat-select multiple formControlName="tecnologia" id="tecnologia" [compareWith]="compararCargos">
+            <mat-option *ngFor="let tecnologia of tecnologias" [value]="tecnologia">{{ tecnologia.nome }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="setarTecnologia()">Setar Tecnologia</button>
 
     <div class="example-button-row">
         <!-- <button type="submit" mat-raised-button color="primary" [disabled]="!formulario.valid">Enviar</button> -->

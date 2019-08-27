@@ -161,5 +161,15 @@ export class DropdownService {
     ]));
 
     /* Fonte: https://github.com/felipefdl/cidades-estados-brasil-json/blob/master/Estados.json */
-  }  
+  }
+  
+  getTecnologias() {
+    return [
+      { nome: 'java', desc: 'Java' },
+      { nome: 'javascript', desc: 'JavaScript' },
+      { nome: 'php', desc: 'PHP' },
+      { nome: 'ruby', desc: 'Ruby' },
+      { nome: 'typescript', desc: 'TypeScript' }
+    ];
+  }
 }

@@ -55,13 +55,8 @@ mat-sidenav-content {
     mat-drawer-content.mat-drawer-content {
         overflow: hidden;
     }
-}
 
-// @media print {
-//     // .nao-imprime {
-//     //     display: none
-//     // }
-//     body:not(.imprimivel) {
-//         display: none
-//     }
-// }
+    mat-sidenav.mat-drawer.mat-sidenav {
+        display: none;
+    }    
+}

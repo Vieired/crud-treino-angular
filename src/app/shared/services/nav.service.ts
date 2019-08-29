@@ -29,14 +29,4 @@ export class NavService {
     else
       this.appDrawer.open();
   }
-
-  visualizarImpressao() {
-    // abre a visualização de impressão, fechando o menu antes caso ele esteja aberto
-    if(this.appDrawer.opened)
-      this.appDrawer.close();
-    setTimeout(() => {
-        self.print();
-      },
-    200);
-  }  
 }

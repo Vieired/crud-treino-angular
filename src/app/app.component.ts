@@ -28,8 +28,8 @@ export class AppComponent implements AfterViewInit {
       route: 'dashboard'
     },
     {
-      displayName: 'Clientes',
-      iconName: 'person',
+      displayName: 'Alfa nv1',
+      iconName: 'account_tree',
       children: [
         {
           displayName: 'Produtos',
@@ -48,6 +48,53 @@ export class AppComponent implements AfterViewInit {
         },                        
       ]
     },
+    {
+      displayName: 'Beta nv1',
+      iconName: 'account_tree',
+      children: [
+        {
+          displayName: 'Produtos',
+          iconName: 'devices_other',
+          route: 'produtos'
+        },
+        {
+          displayName: 'Clientes',
+          iconName: 'person',
+          route: 'clientes'
+        },        
+        {
+          displayName: 'Charlie nv2',
+          iconName: 'account_tree',
+          children: [
+            {
+              displayName: 'Produtos',
+              iconName: 'devices_other',
+              route: 'produtos'
+            },
+            {
+              displayName: 'Dashboard',
+              iconName: 'dashboard',
+              route: 'dashboard'
+            },
+            {
+              displayName: 'Clientes',
+              iconName: 'person',
+              route: 'clientes'
+            },        
+            {
+              displayName: 'Contato',
+              iconName: 'phone',
+              route: 'contato'
+            }                 
+          ]
+        }                       
+      ]
+    },    
+    {
+      displayName: 'Clientes',
+      iconName: 'person',
+      route: 'clientes'
+    },    
     {
       displayName: 'Contato',
       iconName: 'phone',

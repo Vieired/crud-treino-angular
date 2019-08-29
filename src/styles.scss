@@ -10,6 +10,11 @@ body {
     justify-content: center;
 }
 
+mat-sidenav-content {
+    // background-color: aquamarine;
+    padding: 20px 12%;
+}
+
 @media print {
     * {
         background: transparent;

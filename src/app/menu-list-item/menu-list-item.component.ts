@@ -24,8 +24,6 @@ export class MenuListItemComponent implements OnInit {
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   @Input() item: NavItem;
   @Input() depth: number;
-  // @Output() item: NavItem;
-  // @Output() depth: number;  
 
   constructor(public navService: NavService,
               public router: Router) {

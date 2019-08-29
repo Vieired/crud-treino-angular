@@ -1,3 +1,4 @@
+import { NavService } from './../shared/services/nav.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -46,7 +47,7 @@ export class DashboardComponent implements OnInit {
     }    
   }
 
-  constructor() { }
+  constructor(private navService: NavService) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
-import {Component, ViewChild, ElementRef, ViewEncapsulation, AfterViewInit} from '@angular/core';
-import {VERSION} from '@angular/material';
+import {Component, ViewChild, ElementRef, ViewEncapsulation, AfterViewInit, Inject} from '@angular/core';
+import {VERSION, MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 import {NavItem} from './shared/models/nav-item';
 import {NavService} from './shared/services/nav.service';
 
@@ -102,8 +102,7 @@ export class AppComponent implements AfterViewInit {
     }
   ];
 
-  constructor(private navService: NavService) {
-  }
+  constructor(private navService: NavService, public dialog: MatDialog) { }
 
   marcarOpcao(elemContato:ElementCSSInlineStyle) {
     // var aux = this;
@@ -113,7 +112,39 @@ export class AppComponent implements AfterViewInit {
     this.tocado = true;
   }
 
+  confirmarLogout() {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '250px'
+    });
+  }
+
   ngAfterViewInit() {
     this.navService.appDrawer = this.appDrawer;
   }
+}
+
+
+
+@Component({
+  template: `
+      <h1 mat-dialog-title>Logout</h1>
+      <div mat-dialog-content>
+        <p>Tem certeza que deseja encerrar?</p>
+      </div>
+      <div mat-dialog-actions align="end">
+        <button mat-button mat-raised-button (click)="onNoClick()">Sim</button>
+        <button mat-button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+      </div>
+  `
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: MatDialog) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

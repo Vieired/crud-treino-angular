@@ -27,12 +27,13 @@ import { ProdutosService } from './produtos/produtos.service';
 import { ContatoComponent } from './contato/contato.component';
 import { MenuListItemComponent } from './menu-list-item/menu-list-item.component';
 import { NavService } from './shared/services/nav.service';
+import { DialogOverviewExampleDialog } from '../app/app.component';
 
 
 @NgModule({
   exports: [ MatListModule, MatIconModule ],
   declarations: [
-    GenericDialogComponent,
+    GenericDialogComponent, DialogOverviewExampleDialog,
     AppComponent,
     ProdutosComponent,
     ClientesComponent,
@@ -42,7 +43,7 @@ import { NavService } from './shared/services/nav.service';
     ContatoComponent,
     MenuListItemComponent
   ],
-  entryComponents: [GenericDialogComponent],
+  entryComponents: [GenericDialogComponent, DialogOverviewExampleDialog],
   imports: [
     MatListModule,
     HttpClientModule, // módulo para trabalhar com requisições HTTP.

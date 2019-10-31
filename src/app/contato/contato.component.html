@@ -3,94 +3,128 @@
 <br><br>
 
 <form class="form" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
-        <mat-label>Nome</mat-label>
-        <input formControlName="nome"
-                matInput placeholder="Digite o nome" value="">
-        <!-- <mat-error *ngIf="nome.invalid">{{getErrorMessage(nome)}}</mat-error> -->
-        <!-- <mat-error *ngIf="validarCampo('nome')">Erro!</mat-error> -->
-        <!-- <mat-hint>Hint</mat-hint> -->
-    </mat-form-field>
+    <div class="row">
+        <div class="col-4">
+            <mat-form-field class="form-control">
+                <mat-label>Nome</mat-label>
+                <input formControlName="nome"
+                        matInput placeholder="Digite o nome" value="" />
+                <!-- <mat-error *ngIf="nome.invalid">{{getErrorMessage(nome)}}</mat-error> -->
+                <!-- <mat-error *ngIf="validarCampo('nome')">Erro!</mat-error> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+        </div>
 
-    <br>
-    <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input formControlName="email"
-                matInput placeholder="Digite um e-mail" value="">
-    </mat-form-field>
+        <div class="col-4">
+            <mat-form-field class="form-control">
+                <mat-label>Email</mat-label>
+                <input formControlName="email"
+                        matInput placeholder="Digite um e-mail" value="">
+            </mat-form-field>
+        </div>
 
-    <br>
-    <mat-form-field class="example-full-width">
-        <mat-label>Observação</mat-label>
-        <textarea formControlName="obs"
-                    matInput placeholder="Digite uma observação"></textarea>
-    </mat-form-field>
-
-    <br>
-    <div formGroupName="endereco">
-        <mat-form-field class="example-full-width">
-            <mat-label>CEP</mat-label>
-            <!-- <mat-input formControlName="cep" placeholder="CEP"></mat-input> -->
-            <input formControlName="cep" matInput placeholder="CEP">
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-full-width">
-            <mat-label>Rua</mat-label>
-            <input formControlName="rua"
-                    matInput placeholder="Rua" value="">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Número</mat-label>
-            <input formControlName="numero"
-                    matInput placeholder="Número" value="">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Bairro</mat-label>
-            <input formControlName="bairro"
-                    matInput placeholder="Bairro" value="">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Cidade</mat-label>
-            <input formControlName="cidade"
-                    matInput placeholder="cidade" value="">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>UF</mat-label>
-            <mat-select formControlName="uf">
-                <!-- <mat-option *ngFor="let estado of estados" value="{{ estado.id }}">{{ estado.sigla }}</mat-option> -->
-                <mat-option *ngFor="let estado of estados | async" value="{{ estado.sigla }}">{{ estado.nome }}</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="col-4">
+            <mat-form-field class="form-control">
+                <mat-label>Observação</mat-label>
+                <textarea formControlName="obs"
+                            matInput placeholder="Digite uma observação"></textarea>
+            </mat-form-field>
+        </div>
     </div>
 
-    <br>
-    <mat-form-field class="example-full-width">
-        <mat-label>Cargo</mat-label>
-        <!-- Dropdown com objeto complexo como valor -->
-        <mat-select formControlName="cargo" id="cargo" [compareWith]="compararCargos">
-            <mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</mat-option>
-            <!-- <option mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</option> -->
-            <!-- <mat-option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</mat-option> -->
-            <!-- <option *ngFor="let cargo of cargos" value="cargo">{{ cargo.desc }}</option> -->
-            <!-- <option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</option> -->
-            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
-            <!-- <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</option> -->
-            <!-- <option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</option> -->
-            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
-            <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</mat-option> -->
-        </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="setarCargo()">Setar Cargo</button>
+    <div formGroupName="endereco">
+        <div class="row">
+            <div class="col-3">
+                <div class="form-group">
+                    <mat-form-field class="form-control">
+                        <mat-label>CEP</mat-label>
+                        <!-- <mat-input formControlName="cep" placeholder="CEP"></mat-input> -->
+                        <input formControlName="cep" matInput placeholder="CEP">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-3">
+                <!-- <div class="form-group"> -->
+                    <mat-form-field class="form-control">
+                        <mat-label>Rua</mat-label>
+                        <input formControlName="rua"
+                                matInput placeholder="Rua" value="">
+                    </mat-form-field>
+                <!-- </div> -->
+            </div>
+            <div class="col-3">
+                <mat-form-field class="form-control">
+                    <mat-label>Número</mat-label>
+                    <input formControlName="numero"
+                            matInput placeholder="Número" value="">
+                </mat-form-field>
+            </div>
+            <div class="col-3">
+                <mat-form-field class="form-control">
+                    <mat-label>Bairro</mat-label>
+                    <input formControlName="bairro"
+                            matInput placeholder="Bairro" value="">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <mat-form-field class="form-control">
+                    <mat-label>Cidade</mat-label>
+                    <input formControlName="cidade"
+                            matInput placeholder="cidade" value="">
+                </mat-form-field>
+            </div>
+            <div class="col-3">
+                <mat-form-field class="form-control">
+                    <mat-label>UF</mat-label>
+                    <mat-select formControlName="uf">
+                        <!-- <mat-option *ngFor="let estado of estados" value="{{ estado.id }}">{{ estado.sigla }}</mat-option> -->
+                        <mat-option *ngFor="let estado of estados | async" value="{{ estado.sigla }}">{{ estado.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <mat-form-field class="form-control">
+                    <mat-label>Cargo</mat-label>
+                    <!-- Dropdown com objeto complexo como valor -->
+                    <mat-select formControlName="cargo" id="cargo" [compareWith]="compararCargos">
+                        <mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</mat-option>
+                        <!-- <option mat-option *ngFor="let cargo of cargos" [value]="cargo">{{ cargo.desc }}</option> -->
+                        <!-- <mat-option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</mat-option> -->
+                        <!-- <option *ngFor="let cargo of cargos" value="cargo">{{ cargo.desc }}</option> -->
+                        <!-- <option *ngFor="let cargo of cargos" value="{{cargo.nivel}}">{{ cargo.desc }}</option> -->
+                        <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
+                        <!-- <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</option> -->
+                        <!-- <option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</option> -->
+                        <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.desc }}</mat-option> -->
+                        <!-- <mat-option *ngFor="let cargo of cargos" [ngValue]="{{cargo}}">{{ cargo.desc }}</mat-option> -->
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="">
+                <button mat-raised-button color="primary" (click)="setarCargo()">Setar Cargo</button>
+            </div>
+        </div>
+    </div>
     
-    <br>
-    <mat-form-field class="example-full-width">
-        <mat-label>Tecnologias</mat-label>
-        <!-- Dropdown multiselect com objeto complexo como valor -->
-        <mat-select multiple formControlName="tecnologia" id="tecnologia" [compareWith]="compararCargos">
-            <mat-option *ngFor="let tecnologia of tecnologias" [value]="tecnologia">{{ tecnologia.nome }}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="setarTecnologia()">Setar Tecnologia</button>
+    <div class="col-3">
+        <mat-form-field class="form-control">
+            <mat-label>Tecnologias</mat-label>
+            <!-- Dropdown multiselect com objeto complexo como valor -->
+            <mat-select multiple formControlName="tecnologia" id="tecnologia" [compareWith]="compararCargos">
+                <mat-option *ngFor="let tecnologia of tecnologias" [value]="tecnologia">{{ tecnologia.nome }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="setarTecnologia()">Setar Tecnologia</button>
+    </div>
 
     <div class="example-button-row">
         <!-- <button type="submit" mat-raised-button color="primary" [disabled]="!formulario.valid">Enviar</button> -->

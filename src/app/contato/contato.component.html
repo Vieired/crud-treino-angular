@@ -34,7 +34,7 @@
 
     <div formGroupName="endereco">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <div class="form-group">
                     <mat-form-field class="form-control">
                         <mat-label>CEP</mat-label>
@@ -43,7 +43,7 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-7">
                 <!-- <div class="form-group"> -->
                     <mat-form-field class="form-control">
                         <mat-label>Rua</mat-label>
@@ -52,14 +52,14 @@
                     </mat-form-field>
                 <!-- </div> -->
             </div>
-            <div class="col-3">
+            <div class="col-1">
                 <mat-form-field class="form-control">
                     <mat-label>Número</mat-label>
                     <input formControlName="numero"
                             matInput placeholder="Número" value="">
                 </mat-form-field>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <mat-form-field class="form-control">
                     <mat-label>Bairro</mat-label>
                     <input formControlName="bairro"
@@ -68,14 +68,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <mat-form-field class="form-control">
                     <mat-label>Cidade</mat-label>
                     <input formControlName="cidade"
                             matInput placeholder="cidade" value="">
                 </mat-form-field>
             </div>
-            <div class="col-3">
+            <div class="col-1">
                 <mat-form-field class="form-control">
                     <mat-label>UF</mat-label>
                     <mat-select formControlName="uf">
@@ -88,7 +88,7 @@
     </div>
 
     <div class="row">
-        <div class="col-3">
+        <div class="col-2">
             <div class="form-group">
                 <mat-form-field class="form-control">
                     <mat-label>Cargo</mat-label>
@@ -115,15 +115,19 @@
         </div>
     </div>
     
-    <div class="col-3">
-        <mat-form-field class="form-control">
-            <mat-label>Tecnologias</mat-label>
-            <!-- Dropdown multiselect com objeto complexo como valor -->
-            <mat-select multiple formControlName="tecnologia" id="tecnologia" [compareWith]="compararCargos">
-                <mat-option *ngFor="let tecnologia of tecnologias" [value]="tecnologia">{{ tecnologia.nome }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="setarTecnologia()">Setar Tecnologia</button>
+    <div class="row">
+        <div class="col-2">
+            <mat-form-field class="form-control">
+                <mat-label>Tecnologias</mat-label>
+                <!-- Dropdown multiselect com objeto complexo como valor -->
+                <mat-select multiple formControlName="tecnologia" id="tecnologia" [compareWith]="compararCargos">
+                    <mat-option *ngFor="let tecnologia of tecnologias" [value]="tecnologia">{{ tecnologia.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <button mat-raised-button color="primary" (click)="setarTecnologia()">Setar Tecnologia</button>
+        </div>
     </div>
 
     <div class="example-button-row">

@@ -86,7 +86,7 @@ export class ProdutosListaComponent implements OnInit {
       <p>Nulla sit amet erat facilisis, feugiat sem in, suscipit tellus. In non tempor ex. Nulla sed augue iaculis nisl feugiat varius eget ac lectus. Etiam quis mauris dolor. Sed nisi libero, scelerisque quis molestie sed, venenatis eget lacus. Aliquam vel bibendum enim. Proin efficitur ut felis id ultricies. Nam in egestas ipsum, ac interdum mi. Quisque vitae semper velit. Donec mollis est nulla, vel varius urna tempus ac. Donec congue orci non dolor mattis interdum. Fusce vel urna id leo auctor pulvinar. Proin a nulla eget felis congue suscipit et in metus.</p>
       <p>Ut viverra ipsum lacus, et imperdiet nibh mollis non. Vestibulum vitae iaculis enim, eu sollicitudin urna. Nam lacus quam, dictum id leo quis, dignissim varius nibh. Proin pretium orci in venenatis finibus. Proin rhoncus eleifend augue in maximus. Proin risus nisi, egestas ac purus ac, interdum dapibus neque. Donec ultrices orci id mauris tincidunt, a imperdiet nisi suscipit.</p>
     </div>
-    <div mat-dialog-actions>
+    <div mat-dialog-actions align="end">
       <!--button mat-button (click)="onNoClick()">Cancelar</button-->
       <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
       <button mat-raised-button color="primary" cdkFocusInitial (click)="appProdutosForm.submeterFormulario()">Salvar</button>

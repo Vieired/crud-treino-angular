@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       periodoInicio: "22/04/2018",
       periodoFim: "22/09/2019",
       local: "Clínica de Olhos",
-      procedimento: "Extração de Costela Torta",
+      procedimento: "Extração de Costela Torta e Furada",
       valor: "2.485,33",
       responsavel: {
         nome: "Geraldo Motta de Assis Ferreira Dalarovik",

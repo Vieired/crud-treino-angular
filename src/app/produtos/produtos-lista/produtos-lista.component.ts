@@ -33,7 +33,7 @@ export class ProdutosListaComponent implements OnInit {
 
   adicionar() {
     let dialogRef = this.dialog.open(GenericDialogComponent, {
-      height: '400px',
+      // height: '400px',
       width: '600px',
       data: {
         titulo: "Adicionar Produto"
@@ -46,7 +46,8 @@ export class ProdutosListaComponent implements OnInit {
 
   editar() {
     this.dialog.open(GenericDialogComponent, {
-      height: '400px',
+      // height: '400px',
+      // maxHeight: '400px',
       width: '600px',
       data: {
         titulo: "Editar Produto"
@@ -89,7 +90,14 @@ export class ProdutosListaComponent implements OnInit {
     <div mat-dialog-actions>
       <!--button mat-button (click)="onNoClick()">Cancelar</button-->
       <button mat-raised-button [mat-dialog-close]="true">Cancelar</button>
-      <button mat-raised-button color="primary" cdkFocusInitial (click)="appProdutosForm.submeterFormulario()">Salvar</button>
+      <button
+        mat-raised-button
+        color="primary"
+        cdkFocusInitial
+        (click)="appProdutosForm.submeterFormulario()"
+      >
+        Salvar
+      </button>
     </div>
   `
 })

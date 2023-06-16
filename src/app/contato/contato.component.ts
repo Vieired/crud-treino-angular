@@ -29,15 +29,17 @@ export class ContatoComponent implements OnInit {
   onSubmit() {
     console.log(this.formulario.value);
     if(this.formulario.valid) {
-      this.http.post('https://httpbin.org/post', 
-                      JSON.stringify(this.formulario.value))
-        .subscribe(dados => { 
-            console.log(dados); 
-            this.formulario.reset; 
-            alert("Registro Adicionado com Sucesso.");
-          },
-          (error: any) => alert('erro')
-        );
+      this.http.post(
+        'https://httpbin.org/post', 
+        JSON.stringify(this.formulario.value)
+      )
+      .subscribe(dados => { 
+          console.log(dados); 
+          this.formulario.reset; 
+          alert("Registro Adicionado com Sucesso.");
+        },
+        (error: any) => alert('erro')
+      );
     }
     else {
       this.validarCamposForm(this.formulario);

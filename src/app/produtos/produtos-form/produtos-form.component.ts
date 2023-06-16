@@ -59,6 +59,10 @@ export class ProdutosFormComponent implements OnInit {
     this.produtosService.inserirOuAtualizar(produto);
   }
 
+  cancelar() {
+    window.history.go(-1);
+  }
+
   teste() {
     alert("testezim");
   }

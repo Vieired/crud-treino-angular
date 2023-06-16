@@ -41,8 +41,10 @@
         <button
             [disabled]="!formulario.valid"
             mat-raised-button color="primary"
+            type="button"
+            (click)="cancelar()"
         >
-            Salvar
+            Cancelar
         </button>
     </p>    
 </form>

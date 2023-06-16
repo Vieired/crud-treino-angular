@@ -17,7 +17,9 @@ export class DropdownService {
   }
 
   getEstadosBrGet() {
-    return this.http.get('/assets/dados/estadosbr.json'); // ao invés de usar o json diretamente aqui, ele está em um arquivo separado conforme sugere as boas práticas
+    // Ao invés de usar o json diretamente aqui, ele está em
+    // um arquivo separado conforme sugere as boas práticas
+    return this.http.get('/assets/dados/estadosbr.json');
       // .map( (x:Response) => x.json() ); // parece que o método map() ficou obsoleto nas novas versões do Angular
   }
 

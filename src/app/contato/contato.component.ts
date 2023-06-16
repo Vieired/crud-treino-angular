@@ -32,10 +32,12 @@ export class ContatoComponent implements OnInit {
       this.http.post('https://httpbin.org/post', 
                       JSON.stringify(this.formulario.value))
         .subscribe(dados => { 
-                              console.log(dados); 
-                              this.formulario.reset; 
-                              alert("Registro Adicionado com Sucesso.");
-                            }, (error: any) => alert('erro') );
+            console.log(dados); 
+            this.formulario.reset; 
+            alert("Registro Adicionado com Sucesso.");
+          },
+          (error: any) => alert('erro')
+        );
     }
     else {
       this.validarCamposForm(this.formulario);
@@ -78,12 +80,19 @@ export class ContatoComponent implements OnInit {
   }
 
   setarTecnologia() {
-    const tec = [{ nome: 'javascript', desc: 'JavaScript' }, { nome: 'typescript', desc: 'TypeScript' }];
+    const tec = [
+      { nome: 'javascript', desc: 'JavaScript' },
+      { nome: 'typescript', desc: 'TypeScript' }
+    ];
     this.formulario.get('tecnologia').setValue(tec);
   }  
 
   compararCargos(obj1, obj2) {
-    return obj1 && obj2 ? (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel) : obj1 === obj2;
+    return obj1 && obj2
+      ?
+      (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel)
+      :
+      obj1 === obj2;
   }
 
   ngOnInit() {

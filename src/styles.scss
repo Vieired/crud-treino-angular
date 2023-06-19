@@ -215,4 +215,8 @@ mat-sidenav-content {
   margin-bottom: 1rem;
 }
 
+.pull-right {
+  display: flex;
+  place-content: end;
+}
 /* Fim - Grid System Bootstrap - sem alterações de tela */

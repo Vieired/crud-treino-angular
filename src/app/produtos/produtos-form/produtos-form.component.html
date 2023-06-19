@@ -13,9 +13,15 @@
         <mat-form-field appearance="outline">
             <mat-label>Produto</mat-label>
             <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
-            <input matInput placeholder="Nome do produto" 
-                id="campoNome" name="campoNome" [(ngModel)]="produto.name" 
-                required #nome="ngModel"> <!-- input variável local "nome" -->
+            <input
+                matInput
+                placeholder="Nome do produto" 
+                id="campoNome"
+                name="campoNome"
+                [(ngModel)]="produto.name"
+                required
+                #nome="ngModel"
+            > <!-- input variável local "nome" -->
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
             <mat-hint *ngIf="nome && !nome.valid && nome.touched">
                 Campo Nome é obrigatório

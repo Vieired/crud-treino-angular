@@ -17,19 +17,26 @@
                 id="campoNome" name="campoNome" [(ngModel)]="produto.name" 
                 required #nome="ngModel"> <!-- input variável local "nome" -->
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <mat-hint *ngIf="nome && !nome.valid && nome.touched">Campo Nome é obrigatório</mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
+            <mat-hint *ngIf="nome && !nome.valid && nome.touched">
+                Campo Nome é obrigatório
+            </mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
         </mat-form-field>
     </p>
 
     <p>
         <mat-form-field appearance="outline">
             <mat-label>Observações</mat-label>
-            <input matInput placeholder="Observações" value="" name="campoObservacoes" [(ngModel)]="produto.symbol">
-            <mat-hint>Hint</mat-hint>
+            <textarea
+                matInput
+                placeholder="Observações"
+                value=""
+                name="campoObservacoes"
+                [(ngModel)]="produto.symbol"
+            ></textarea>
         </mat-form-field>
     </p>    
 
-    <p>
+    <p hidden>
         <button
             [disabled]="!formulario.valid"
             mat-raised-button color="primary"
@@ -37,7 +44,7 @@
             Salvar
         </button>
     </p>
-    <p> <!-- botão duplicado para testes -->
+    <p hidden> <!-- botão duplicado para testes -->
         <button
             [disabled]="!formulario.valid"
             mat-raised-button color="primary"
@@ -46,5 +53,5 @@
         >
             Cancelar
         </button>
-    </p>    
+    </p>
 </form>

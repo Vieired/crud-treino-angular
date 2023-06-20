@@ -25,7 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
 import { ProdutosService } from './produtos/produtos.service';
 import { ContatoComponent } from './contato/contato.component';
-import { MenuListItemComponent } from './menu-list-item/menu-list-item.component';
+import { MenuListItemComponent } from './components/menu-list-item/menu-list-item.component';
 import { NavService } from './shared/services/nav.service';
 import { DialogOverviewExampleDialog } from '../app/app.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';

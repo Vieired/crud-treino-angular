@@ -2,8 +2,8 @@ import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { from } from 'rxjs';
-import { NavItem } from '../shared/models/nav-item'
-import { NavService } from '../shared/services/nav.service';
+import { NavItem } from '../../shared/models/nav-item'
+import { NavService } from '../../shared/services/nav.service';
 
 @Component({
   selector: 'app-menu-list-item',
@@ -20,7 +20,7 @@ import { NavService } from '../shared/services/nav.service';
   ]  
 })
 export class MenuListItemComponent implements OnInit {
-  expanded: boolean;
+  expanded: boolean = false;
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   @Input() item: NavItem;
   @Input() depth: number;

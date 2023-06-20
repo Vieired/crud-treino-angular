@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { ProdutosComponent } from './produtos/produtos.component';
-import { ClientesComponent } from './clientes/clientes.component';
+import { ClientesComponent } from './paginas/clientes/clientes.component';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { ProdutosListaComponent, GenericDialogComponent } from './produtos/produtos-lista/produtos-lista.component';
 import { MatPaginatorModule } from '@angular/material/paginator';

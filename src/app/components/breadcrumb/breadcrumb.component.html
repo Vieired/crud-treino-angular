@@ -1,7 +1,11 @@
 <div>
     <span>
-        Home
+        <a routerLink="/dashboard" routerLinkActive="ativo">Home</a>
     </span>
-    <!-- passar outros links por propriedade -->
-    <span>Teste</span>
+    <!-- <span *ngFor="let item of itens; let i = index">
+        <a routerLink="{{item.caminho}}" routerLinkActive="ativo">{{item.nome}}</a>
+    </span> -->
+    <span>
+        {{tituloPaginaAtual}}
+    </span>
 </div>

@@ -1,5 +1,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+html {
+  font-family: Verdana, "Helvetica Neue", Roboto, sans-serif;
+}
+
 body {
     display: block;
     margin: 0;

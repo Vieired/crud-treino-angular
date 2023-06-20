@@ -3,61 +3,70 @@
 <!-- <h3>ID: {{ id }}</h3> -->
 <!-- <h3>Produto: {{ produto.name }}</h3> -->
 
-<form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
-    <mat-form-field appearance="outline">
-        <mat-label>ID</mat-label>
-        <input matInput name="campoId" [(ngModel)]="produto.id" readonly>
-    </mat-form-field>
+<div class="container">
+    <h1>{{tituloPagina}}</h1>
 
-    <p>
+    <div class="row">
+        <app-breadcrumb [tituloPaginaAtual]="tituloPagina"></app-breadcrumb>
+    </div>
+
+    <form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
         <mat-form-field appearance="outline">
-            <mat-label>Produto</mat-label>
-            <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
-            <input
-                matInput
-                placeholder="Nome do produto" 
-                id="campoNome"
-                name="campoNome"
-                [(ngModel)]="produto.name"
-                required
-                #nome="ngModel"
-            > <!-- input variável local "nome" -->
-            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <mat-hint *ngIf="nome && !nome.valid && nome.touched">
-                Campo Nome é obrigatório
-            </mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
+            <mat-label>ID</mat-label>
+            <input matInput name="campoId" [(ngModel)]="produto.id" readonly>
         </mat-form-field>
-    </p>
+    
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Produto</mat-label>
+                <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
+                <input
+                    matInput
+                    placeholder="Nome do produto" 
+                    id="campoNome"
+                    name="campoNome"
+                    [(ngModel)]="produto.name"
+                    required
+                    #nome="ngModel"
+                > <!-- input variável local "nome" -->
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint *ngIf="nome && !nome.valid && nome.touched">
+                    Campo Nome é obrigatório
+                </mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
+            </mat-form-field>
+        </p>
+    
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Observações</mat-label>
+                <textarea
+                    matInput
+                    placeholder="Observações"
+                    value=""
+                    name="campoObservacoes"
+                    [(ngModel)]="produto.symbol"
+                ></textarea>
+            </mat-form-field>
+        </p>    
+    
+        <p hidden>
+            <button
+                [disabled]="!formulario.valid"
+                mat-raised-button color="primary"
+            >
+                Salvar
+            </button>
+        </p>
+        <p hidden> <!-- botão duplicado para testes -->
+            <button
+                [disabled]="!formulario.valid"
+                mat-raised-button color="primary"
+                type="button"
+                (click)="cancelar()"
+            >
+                Cancelar
+            </button>
+        </p>
+    </form>
+</div>
 
-    <p>
-        <mat-form-field appearance="outline">
-            <mat-label>Observações</mat-label>
-            <textarea
-                matInput
-                placeholder="Observações"
-                value=""
-                name="campoObservacoes"
-                [(ngModel)]="produto.symbol"
-            ></textarea>
-        </mat-form-field>
-    </p>    
-
-    <p hidden>
-        <button
-            [disabled]="!formulario.valid"
-            mat-raised-button color="primary"
-        >
-            Salvar
-        </button>
-    </p>
-    <p hidden> <!-- botão duplicado para testes -->
-        <button
-            [disabled]="!formulario.valid"
-            mat-raised-button color="primary"
-            type="button"
-            (click)="cancelar()"
-        >
-            Cancelar
-        </button>
-    </p>
-</form>

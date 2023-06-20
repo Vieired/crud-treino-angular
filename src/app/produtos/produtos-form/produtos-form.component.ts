@@ -20,6 +20,7 @@ import { Produto } from '../produtos.model';
 
 export class ProdutosFormComponent implements OnInit {
 
+  tituloPagina: string = "Editar Produto";
   id: number;
   inscricao: Subscription; // como o "params" do objeto "route" retorna um BehaviorSubject (um objeto de inscrição), então posso criar uma variável do tipo de inscrição para receber o "route.params"
   produto: any;

@@ -56,7 +56,7 @@ export class ProdutosListaComponent implements OnInit {
   }
 
   atualizarGrid() {
-    debugger;
+    // debugger;
     this.produtosService.getProdutos();
   }
 

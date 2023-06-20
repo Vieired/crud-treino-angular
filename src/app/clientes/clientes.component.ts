@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clientes.component.scss']
 })
 export class ClientesComponent implements OnInit {
-
+  tituloPagina: string = "Clientes";
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};

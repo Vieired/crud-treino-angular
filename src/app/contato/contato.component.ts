@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class ContatoComponent implements OnInit {
 
+  tituloPagina: string = "Contato";
   formulario: FormGroup;
   // estados: EstadoBr[];
   // estados: Observable<EstadoBr[]>;

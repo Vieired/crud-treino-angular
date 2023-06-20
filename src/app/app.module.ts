@@ -28,6 +28,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { MenuListItemComponent } from './menu-list-item/menu-list-item.component';
 import { NavService } from './shared/services/nav.service';
 import { DialogOverviewExampleDialog } from '../app/app.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DialogOverviewExampleDialog } from '../app/app.component';
     ProdutosListaComponent,
     ProdutosFormComponent,
     ContatoComponent,
-    MenuListItemComponent
+    MenuListItemComponent,
+    BreadcrumbComponent
   ],
   entryComponents: [GenericDialogComponent, DialogOverviewExampleDialog],
   imports: [

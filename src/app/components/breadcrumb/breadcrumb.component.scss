@@ -1,0 +1,19 @@
+div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    padding-right: 8px;
+    padding-left: 8px;
+
+    span {
+        display: flex;
+        margin-right: 8px;
+        gap: 8px;
+        // color: ${props => props.theme.colors.labelText};
+    
+        &:not(span:first-child):before {
+            content: '> ';
+        }        
+    }
+}

@@ -102,7 +102,7 @@ export class AppComponent implements AfterViewInit {
     },
     {
       displayName: 'Termo',
-      iconName: 'phone',
+      iconName: 'gavel',
       route: 'termo'
     }    
   ];

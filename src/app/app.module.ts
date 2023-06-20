@@ -30,6 +30,7 @@ import { NavService } from './shared/services/nav.service';
 import { DialogOverviewExampleDialog } from '../app/app.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { TermoComponent } from './paginas/termo/termo.component';
+import { HomeComponent } from './paginas/home/home.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { TermoComponent } from './paginas/termo/termo.component';
     ContatoComponent,
     MenuListItemComponent,
     BreadcrumbComponent,
-    TermoComponent
+    TermoComponent,
+    HomeComponent
   ],
   entryComponents: [GenericDialogComponent, DialogOverviewExampleDialog],
   imports: [

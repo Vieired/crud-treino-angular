@@ -1,8 +1,8 @@
-import { DropdownService } from './../shared/services/dropdown.service';
+import { DropdownService } from '../../shared/services/dropdown.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { EstadoBr } from '../shared/models/estado-br.model';
+import { EstadoBr } from '../../shared/models/estado-br.model';
 import { Observable } from 'rxjs';
 
 

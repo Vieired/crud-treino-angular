@@ -5,7 +5,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { ClientesComponent } from './paginas/clientes/clientes.component';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
-import { ContatoComponent } from './contato/contato.component';
+import { ContatoComponent } from './paginas/contato/contato.component';
 import { TermoComponent } from './paginas/termo/termo.component';
 import { HomeComponent } from './paginas/home/home.component';
 

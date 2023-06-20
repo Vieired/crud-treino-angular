@@ -99,7 +99,12 @@ export class AppComponent implements AfterViewInit {
       displayName: 'Contato',
       iconName: 'phone',
       route: 'contato'
-    }
+    },
+    {
+      displayName: 'Termo',
+      iconName: 'phone',
+      route: 'termo'
+    }    
   ];
 
   constructor(private navService: NavService, public dialog: MatDialog) { }

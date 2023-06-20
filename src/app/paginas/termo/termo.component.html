@@ -1,0 +1,82 @@
+<button mat-raised-button color="primary" onclick="self.print()" class="btn-impressao">Imprimir Isto</button>
+
+<div class="flex-container">
+    <div class="container">
+        <section>
+            <div class="title">
+                <span><img src="../../assets/img/InTech-pos-cor.png" /></span>
+                <span><h4>Termo de Compromisso Paciente Particular</h4></span>
+            </div>
+        </section>
+
+        <section>
+            <p>Paciente: {{ termo.paciente.nome }}</p>
+            <p>Identidade: {{ termo.paciente.rg.orgaoExpedidor }} - {{ termo.paciente.rg.numero }}</p>
+            <p>CPF: {{ termo.paciente.cpf }}</p>
+            <p>Endereço: {{ termo.paciente.endereco }}</p>
+        </section>
+
+        <section>
+            <p>Representante Legal/Procurador: {{ termo.procurador.nome }}</p>
+            <p>Identidade (tipo e número): {{ termo.procurador.rg }}</p>
+            <p>CPF: {{ termo.procurador.cpf }}</p>
+            <p>Endereço: {{ termo.procurador.endereco }}</p>
+        </section>
+
+        <section>
+            <p>Dados do Atendimento:</p>
+            <p>Período do Atendimento: {{ termo.dadosAtendimento.periodoInicio }} a {{ termo.dadosAtendimento.periodoFim }} </p>
+            <p>Local do Atendimento: {{ termo.dadosAtendimento.local }}</p>
+            <p>Procedimento: {{ termo.dadosAtendimento.procedimento }}</p>
+            <p>Valor Unitário do Procedimento: R$ {{ termo.dadosAtendimento.valor }}</p>
+            <p>Médico Responsável: {{ termo.dadosAtendimento.responsavel.nome }} / {{ termo.dadosAtendimento.responsavel.crm }}</p>
+        </section>
+
+        <section>
+            <h3>CLÁUSULA PRIMEIRA:</h3>
+            <p class="clausula">Pelo presente termo o PACIENTE/RESPONSÁVEL supra qualificado se compromete a assumir integralmente a responsabilidade pelo pagamento das despesas realizadas para tratamento de <strong>{{ termo.tratamentoPaciente }}</strong>, autorizando a <strong>{{ termo.nomeClinica }}</strong>, após a prestação dos serviços, conforme determinação legal a emitir a respectiva Nota Fiscal referente aos serviços prestados.</p>
+        </section>
+
+        <section>
+            <h3>CLÁUSULA SEGUNDA:</h3>
+            <p class="clausula">Em caso de necessidade de cobrança judicial, o PACIENTE/RESPONSÁVEL declara estar ciente de que o valor da fatura será acrescido os juros de mora de 1% (um por cento) ao mês, correção monetária no período, despesas de cobrança e honorários advocatícios.</p>
+        </section>
+
+        <section>
+            <h3>CLÁUSULA TERCEIRA:</h3>
+            <p class="clausula">Declaro para os devidos fins e sob as penas da lei, seren verdadeiras as informações cadastrais acima prestadas, pertinentes a ficha de resgistro de tratamento ora firmada, bem como que li e entendi o presente "TERMO DE COMPROMISSO" e que estou de acordo com as condições acima estabelecidas.</p>
+        </section>
+
+        <section>
+            <div>Data:</div>
+            <br/><br/>
+            <div class="assinaturas">
+                <span class="paciente">
+                    <div>__________________________________________</div>
+                    <small>Paciente</small>
+                </span>
+                <span class="procurador">
+                    <div>__________________________________________</div>
+                    <small>Representante Legal / Procurador</small>
+                </span>
+            </div>
+        </section>
+
+        <section>
+            <p>Testemunhas:</p>
+            <br/><br/>
+            <div class="assinaturas">
+                <span class="testemunha">
+                    <p>1 - ________________________________________</p>
+                    <p>Nome: {{ termo.testemunha1.nome }}</p>
+                    <p>CPF: {{ termo.testemunha1.cpf }}</p>
+                </span>
+                <span class="testemunha">
+                    <p>2 - ________________________________________</p>
+                    <p>Nome: {{ termo.testemunha2.nome }}</p>
+                    <p>CPF: {{ termo.testemunha2.cpf }}</p>
+                </span>
+            </div>
+        </section>
+    </div>
+</div>

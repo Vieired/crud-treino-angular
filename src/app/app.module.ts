@@ -29,6 +29,7 @@ import { MenuListItemComponent } from './menu-list-item/menu-list-item.component
 import { NavService } from './shared/services/nav.service';
 import { DialogOverviewExampleDialog } from '../app/app.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { TermoComponent } from './paginas/termo/termo.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
     ProdutosFormComponent,
     ContatoComponent,
     MenuListItemComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    TermoComponent
   ],
   entryComponents: [GenericDialogComponent, DialogOverviewExampleDialog],
   imports: [

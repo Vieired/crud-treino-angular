@@ -6,6 +6,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProdutosFormComponent } from './produtos/produtos-form/produtos-form.component';
 import { ContatoComponent } from './contato/contato.component';
+import { TermoComponent } from './paginas/termo/termo.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'termo', component: TermoComponent },
   // { path: '', pathMatch: 'full', redirectTo: 'ProdutosComponent' },
   { path: '', pathMatch: 'full', redirectTo: 'produtos' },
   { path: 'produtos/produtosform/:id', component: ProdutosFormComponent }

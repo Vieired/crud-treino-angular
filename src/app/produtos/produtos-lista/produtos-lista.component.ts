@@ -32,32 +32,50 @@ export class ProdutosListaComponent implements OnInit {
     ) { }
 
   adicionar() {
+    localStorage.setItem('usandoModal', JSON.stringify(true));
+    // localStorage.setItem('produtoEmEdicao', JSON.stringify(null));
     let dialogRef = this.dialog.open(GenericDialogComponent, {
       // height: '400px',
       width: '600px',
       data: {
-        titulo: "Adicionar Produto"
+        titulo: "Adicionar Produto",
+        // dadosItem: null
       }
     });
 
-    dialogRef.afterClosed().subscribe(x => this.atualizarGrid());    
+    dialogRef.afterClosed().subscribe(x => {
+      this.atualizarGrid();
+      this.limparProdutoDoStorage()
+    });
     // alert("Registro Adicionado com Sucesso.");
   }
 
-  editar() {
-    this.dialog.open(GenericDialogComponent, {
+  editar(element: Produto) {
+    localStorage.setItem('usandoModal', JSON.stringify(true));
+    localStorage.setItem('produtoEmEdicao', JSON.stringify(element));
+    let dialogRef = this.dialog.open(GenericDialogComponent, {
       // height: '400px',
       // maxHeight: '400px',
       width: '600px',
       data: {
-        titulo: "Editar Produto"
+        titulo: "Editar Produto",
+        // dadosItem: element
       }
     });
+
+    dialogRef.afterClosed().subscribe(x => 
+      this.limparProdutoDoStorage()
+    );
   }
 
   atualizarGrid() {
     // debugger;
     this.produtosService.getProdutos();
+  }
+
+  limparProdutoDoStorage() {
+    localStorage.removeItem('produtoEmEdicao');
+    localStorage.setItem('usandoModal', JSON.stringify(false));
   }
 
   ngOnInit() {

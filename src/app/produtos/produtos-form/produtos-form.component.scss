@@ -1,3 +1,8 @@
 mat-form-field {
     display: contents;
+
+    &.campo-id {
+        // visibility: hidden;
+        display: none;
+    }
 }

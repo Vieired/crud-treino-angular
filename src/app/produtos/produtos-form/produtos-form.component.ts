@@ -29,14 +29,15 @@ export class ProdutosFormComponent implements OnInit {
   itensBreadcrumb: ItensBreadcrumb[] = [
     { nome: 'Produtos', caminho: '/produtos'},
     { nome: this.tituloPagina, caminho: ''},
-  ];  
+  ];
+  usandoModal: boolean = false;
 
 
   // classe ActivatedRoute injetada no construtor para ao inicializar e instanciar 
   // a classe ProdutosFormComponent já obter possíveis parâmetros que existirem na URL
   constructor(
     private route: ActivatedRoute,
-    private produtosService: ProdutosService // injetando o serviço ProdutosService no construtor da classe ProdutosFormComponent para poder se ultilizar dos métodos deste serviço
+    private produtosService: ProdutosService, // injetando o serviço ProdutosService no construtor da classe ProdutosFormComponent para poder se ultilizar dos métodos deste serviço
   ) {
     // this.id = this.route.snapshot.params['id']; // dois problemas nesta forma de fazer (aula 54 da Loiane)
     // console.log(this.id);
@@ -74,23 +75,32 @@ export class ProdutosFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.inscricao = this.route.params.subscribe(function(params:any) {
-    //   this.id = params['id'];
-    //   this.produtos = this.produtosService.getProduto(/*this.id*/5);
-    // });
+    let produtoEmEdicao: Produto = JSON.parse(localStorage.getItem('produtoEmEdicao'));
+    // this.editandoViaModal = produtoEmEdicao && produtoEmEdicao.id > 0 ? true : false;
+    this.usandoModal = JSON.parse(localStorage.getItem('usandoModal')) ? true : false;
+    // console.log("produtoEmEdicao: ", produtoEmEdicao);
+
     this.inscricao = this.route.params.subscribe(
       (params: any) => {
-        if(params['id']) {
-          this.id = params['id']; // pega o id da URL
-          this.produto = this.produtosService.getProduto(this.id); // pega o objeto inteiro
+        if(this.usandoModal) {
+          if(produtoEmEdicao != null && produtoEmEdicao.id > 0) {
+            this.id = produtoEmEdicao.id; // pega o id do objeto no LocalStorage
+            this.produto = this.produtosService.getProduto(this.id); // recupera o objeto inteiro
+          }
         }
-        // else {
-        //   this.produto = {
-        //     id: 0,
-        //     name: "",
-        //     symbol: ""
-        //   }
-        // }
+        else {
+          if(params['id']) {
+            this.id = params['id']; // pega o id da URL
+            this.produto = this.produtosService.getProduto(this.id); // recupera o objeto inteiro
+          }
+          // else {
+          //   this.produto = {
+          //     id: 0,
+          //     name: "",
+          //     symbol: ""
+          //   }
+          // }
+        }
       }
     );
   }

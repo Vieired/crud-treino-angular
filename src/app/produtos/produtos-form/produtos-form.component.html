@@ -4,14 +4,16 @@
 <!-- <h3>Produto: {{ produto.name }}</h3> -->
 
 <div class="container">
-    <h1>{{tituloPagina}}</h1>
+    <h1 *ngIf="usandoModal === false">
+        {{tituloPagina}}
+    </h1>
 
-    <div class="row">
+    <div class="row" *ngIf="usandoModal === false">
         <app-breadcrumb [itens]="itensBreadcrumb"></app-breadcrumb>
     </div>
 
     <form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="campo-id">
             <mat-label>ID</mat-label>
             <input matInput name="campoId" [(ngModel)]="produto.id" readonly>
         </mat-form-field>

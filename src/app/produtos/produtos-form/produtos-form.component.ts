@@ -6,11 +6,6 @@ import { ProdutosService } from '../produtos.service';
 import { Form } from '@angular/forms';
 import { Produto } from '../produtos.model';
 
-interface ItensBreadcrumb {
-  nome: string,
-  caminho: string | null;
-}
-
 @Component({
   selector: 'app-produtos-form',
   templateUrl: './produtos-form.component.html',
@@ -37,7 +32,8 @@ export class ProdutosFormComponent implements OnInit {
   ];  
 
 
-  // classe ActivatedRoute injetada no construtor para ao inicializar e instanciar a classe ProdutosFormComponent já obter possíveis parâmetros que existirem na URL
+  // classe ActivatedRoute injetada no construtor para ao inicializar e instanciar 
+  // a classe ProdutosFormComponent já obter possíveis parâmetros que existirem na URL
   constructor(
     private route: ActivatedRoute,
     private produtosService: ProdutosService // injetando o serviço ProdutosService no construtor da classe ProdutosFormComponent para poder se ultilizar dos métodos deste serviço

@@ -33,8 +33,8 @@ export class MenuListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("teste: ");
-    console.log(this.item);
+    // console.log("teste: ");
+    // console.log(this.item);
     
     if(this.item) {
       this.navService.currentUrl.subscribe((url: string) => {

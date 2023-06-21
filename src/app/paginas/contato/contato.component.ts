@@ -14,6 +14,9 @@ import { Observable } from 'rxjs';
 export class ContatoComponent implements OnInit {
 
   tituloPagina: string = "Contato";
+  itensBreadcrumb: ItensBreadcrumb[] = [
+    { nome: this.tituloPagina, caminho: ''},
+  ];  
   formulario: FormGroup;
   // estados: EstadoBr[];
   // estados: Observable<EstadoBr[]>;

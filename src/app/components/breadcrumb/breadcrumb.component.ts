@@ -6,8 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  // @Input() public itens: string[];
-  @Input() public tituloPaginaAtual: string[];
+  @Input() public itens: ItensBreadcrumb[];
 
   constructor() { }
 

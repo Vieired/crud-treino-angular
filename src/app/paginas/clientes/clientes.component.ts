@@ -10,6 +10,9 @@ export class ClientesComponent implements OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
+  itensBreadcrumb: ItensBreadcrumb[] = [
+    { nome: this.tituloPagina, caminho: ''},
+  ];
 
   constructor() { }
 

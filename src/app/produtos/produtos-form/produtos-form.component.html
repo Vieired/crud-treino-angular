@@ -7,7 +7,7 @@
     <h1>{{tituloPagina}}</h1>
 
     <div class="row">
-        <app-breadcrumb [tituloPaginaAtual]="tituloPagina"></app-breadcrumb>
+        <app-breadcrumb [itens]="itensBreadcrumb"></app-breadcrumb>
     </div>
 
     <form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">

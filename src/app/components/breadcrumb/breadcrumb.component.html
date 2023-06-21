@@ -2,10 +2,17 @@
     <span>
         <a routerLink="/home" routerLinkActive="ativo">Home</a>
     </span>
-    <!-- <span *ngFor="let item of itens; let i = index">
-        <a routerLink="{{item.caminho}}" routerLinkActive="ativo">{{item.nome}}</a>
-    </span> -->
-    <span>
-        {{tituloPaginaAtual}}
+    <span *ngFor="let item of itens; let i = index">
+        <a
+            *ngIf="(item.caminho != '' && itens.length > 0); else elseBlock"
+            routerLink="{{item.caminho}}"
+            routerLinkActive="false"
+        >
+            {{item.nome}}
+        </a>
+        <ng-template #elseBlock>
+            <span>{{item.nome}}</span>
+        </ng-template>
     </span>
+
 </div>

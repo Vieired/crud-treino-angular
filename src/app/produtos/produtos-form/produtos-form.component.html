@@ -66,7 +66,6 @@
     
         <div class="botoes" *ngIf="usandoModal === false">
             <button
-                [disabled]="!formulario.valid"
                 mat-raised-button color="primary"
                 type="button"
                 (click)="cancelar()"

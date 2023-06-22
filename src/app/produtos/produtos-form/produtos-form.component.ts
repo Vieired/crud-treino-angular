@@ -81,8 +81,7 @@ export class ProdutosFormComponent implements OnInit {
     window.history.go(-1);
   }
 
-  ngOnInit() {
-    // carrega dados no formulário
+  carregarDadosFormulario() {
     let produtoEmEdicao: Produto = JSON.parse(localStorage.getItem('produtoEmEdicao'));
     // this.editandoViaModal = produtoEmEdicao && produtoEmEdicao.id > 0 ? true : false;
     this.usandoModal = JSON.parse(localStorage.getItem('usandoModal')) ? true : false;
@@ -120,29 +119,14 @@ export class ProdutosFormComponent implements OnInit {
               weight: [this.produto.weight],     
             });
           }
-          // else {
-          //   this.produto = {
-          //     id: 0,
-          //     name: "",
-          //     symbol: ""
-          //   }
-          // }
         }
       }
     );
+  }
 
-    // // carrega dados no formulário com FormGroup
-    // this.formulario = this.produtosService.getProduto(this.id);
-
-    // // define valores e validações do formulário
-    // this.formulario = this.FormBuilder.group({
-    //   acao: [null],
-    //   id: [3],
-    //   name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-    //   position: [null],
-    //   symbol: [null],
-    //   weight: [null],      
-    // });    
+  ngOnInit() {
+    // carrega dados no formulário
+    this.carregarDadosFormulario()
   }
 
   ngOnDestroy() { // mesmo depois do objeto de ProdutosFormComponent ser destruído, a inscrição pode continuar viva. Então faço a desinscrição no momento da destruição deste objeto para não ficar desperdiçando memória da máquina atoa (tipo um GarbageCollector do Java).

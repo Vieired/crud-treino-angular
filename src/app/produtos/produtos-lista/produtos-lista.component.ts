@@ -113,6 +113,7 @@ export class ProdutosListaComponent implements OnInit {
         color="primary"
         cdkFocusInitial
         (click)="appProdutosForm.submeterFormulario()"
+        [disabled]="!appProdutosForm.formulario.valid"
       >
         Salvar
       </button>

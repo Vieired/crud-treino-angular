@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProdutosService {
   
-  private PRODUTOS: any = [
+  private PRODUTOS: Produto[] = [
     {acao:null, id: 20, position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {acao:null, id: 19, position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
     {acao:null, id: 18, position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -44,12 +44,12 @@ export class ProdutosService {
     return null;
   }
 
-  setProduto(produto: any) {
+  setProduto(produto: Produto) {
     // isto em condições reais seria um update no banco via query
     for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-      if(this.PRODUTOS[i].id == produto.campoId) {
-        this.PRODUTOS[i].name = produto.campoNome;
-        this.PRODUTOS[i].symbol = produto.campoObservacoes;
+      if(this.PRODUTOS[i].id == produto.id) {
+        this.PRODUTOS[i].name = produto.name;
+        this.PRODUTOS[i].symbol = produto.symbol;
       }
     }
   }
@@ -87,7 +87,7 @@ export class ProdutosService {
   //   }
   // }
 
-  inserirOuAtualizar(produto: any) {
+  inserirOuAtualizar(produto: Produto) {
     debugger;
     if(produto.id == 0) { // se o produto tem id 0, então adicione ele como um novo registro
       let aux = {
@@ -104,9 +104,9 @@ export class ProdutosService {
     }
     else { // se o produto tem id maior que 0 então atualize ele
       for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-        if(this.PRODUTOS[i].id == produto.campoId) {
-          this.PRODUTOS[i].name = produto.campoNome;
-          this.PRODUTOS[i].symbol = produto.campoObservacoes;
+        if(this.PRODUTOS[i].id == produto.id) {
+          this.PRODUTOS[i].name = produto.name;
+          this.PRODUTOS[i].symbol = produto.symbol;
         }
       }      
     }

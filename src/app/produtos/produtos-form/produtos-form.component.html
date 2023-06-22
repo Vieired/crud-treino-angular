@@ -12,54 +12,59 @@
         <app-breadcrumb [itens]="itensBreadcrumb"></app-breadcrumb>
     </div>
 
-    <form #formulario="ngForm" (ngSubmit)="submeterFormulario(formulario)">
+    <form [formGroup]="formulario" (ngSubmit)="submeterFormulario()">
         <mat-form-field appearance="outline" class="campo-id">
             <mat-label>ID</mat-label>
-            <input matInput name="campoId" [(ngModel)]="produto.id" readonly>
+            <input
+                matInput
+                formControlName="id"
+                readonly
+            >
         </mat-form-field>
     
         <p>
             <mat-form-field appearance="outline">
-                <mat-label>Produto</mat-label>
-                <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
+                <mat-label>Nome *</mat-label>
                 <input
                     matInput
-                    placeholder="Nome do produto" 
-                    id="campoNome"
-                    name="campoNome"
-                    [(ngModel)]="produto.name"
-                    required
-                    #nome="ngModel"
-                > <!-- input variável local "nome" -->
+                    placeholder="Nome" 
+                    formControlName="name"
+                >
                 <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                 <mat-hint *ngIf="nome && !nome.valid && nome.touched">
                     Campo Nome é obrigatório
                 </mat-hint> <!-- com a variável local "nome" consigo acessar atributos do formulário disponibilizados pela diretiva Form -->
             </mat-form-field>
         </p>
-    
+
         <p>
             <mat-form-field appearance="outline">
-                <mat-label>Observações</mat-label>
+                <mat-label>Peso</mat-label>
+                <!-- <input matInput placeholder="Nome do produto" value="{{ produto.name }}"> -->
+                <input
+                    matInput
+                    placeholder="Peso"
+                    formControlName="weight"
+                >
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <mat-hint *ngIf="nome && !nome.valid && nome.touched">
+                    Campo Nome é obrigatório
+                </mat-hint>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Símbolo</mat-label>
                 <textarea
                     matInput
-                    placeholder="Observações"
-                    value=""
-                    name="campoObservacoes"
-                    [(ngModel)]="produto.symbol"
+                    placeholder="Símbolo"
+                    formControlName="symbol"
                 ></textarea>
             </mat-form-field>
         </p>    
     
-        <p hidden>
-            <button
-                [disabled]="!formulario.valid"
-                mat-raised-button color="primary"
-            >
-                Salvar
-            </button>
-        </p>
-        <p hidden> <!-- botão duplicado para testes -->
+        <div class="botoes" *ngIf="usandoModal === false">
             <button
                 [disabled]="!formulario.valid"
                 mat-raised-button color="primary"
@@ -67,8 +72,14 @@
                 (click)="cancelar()"
             >
                 Cancelar
+            </button>            
+            <button
+                [disabled]="!formulario.valid"
+                mat-raised-button color="primary"
+            >
+                Salvar
             </button>
-        </p>
+        </div>
     </form>
 </div>
 

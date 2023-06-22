@@ -18,7 +18,6 @@ export class ProdutosFormComponent implements OnInit {
   id: number;
   inscricao: Subscription; // como o "params" do objeto "route" retorna um BehaviorSubject (um objeto de inscrição), então posso criar uma variável do tipo de inscrição para receber o "route.params"
   produto: Produto;
-  // produto: Produto;
   formulario: FormGroup;
   itensBreadcrumb: ItensBreadcrumb[] = [
     { nome: 'Produtos', caminho: '/produtos'},
@@ -102,6 +101,16 @@ export class ProdutosFormComponent implements OnInit {
               symbol: [this.produto.symbol],
               weight: [this.produto.weight],
             });
+          }
+          else {
+            this.formulario = this.FormBuilder.group({
+              acao: [null],
+              id: [0],
+              name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+              position: [null],
+              symbol: [null],
+              weight: [null],
+            });            
           }
         }
         else {

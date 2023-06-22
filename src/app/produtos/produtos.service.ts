@@ -89,7 +89,8 @@ export class ProdutosService {
 
   inserirOuAtualizar(produto: Produto) {
     debugger;
-    if(produto.id == 0) { // se o produto tem id 0, então adicione ele como um novo registro
+    // se o produto tem id 0, então adicione ele como um novo registro
+    if(!produto.id || produto.id == 0) {
       let aux = {
         acao: null, 
         id: this.obterNovoId(), 
@@ -102,7 +103,8 @@ export class ProdutosService {
       console.table(aux);
       // alert("Registro Adicionado com Sucesso.");
     }
-    else { // se o produto tem id maior que 0 então atualize ele
+    // se o produto tem id maior que 0 então atualize ele
+    else {
       for(let i=0 ; i<this.PRODUTOS.length ; i++) {
         if(this.PRODUTOS[i].id == produto.id) {
           this.PRODUTOS[i].name = produto.name;

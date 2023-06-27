@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,47 +31,79 @@ export class ProdutosService {
     {acao:null, id: 1, position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'}
   ];
 
-  constructor() { }
+  private URL: string = 'http://localhost:7000/produtos';
+  // private headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+  private headers = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  });
+  
+  constructor(private http: HttpClient) { }
 
-  getProdutos() {
-    return this.PRODUTOS;
+  listarProdutos(): Observable<Produto[]> {
+    return this.http.get<Produto[]>(this.URL);
   }
 
-  getProduto(id: number) {
-    let produtos = this.getProdutos();
-    for(let i=0 ; i<produtos.length ; i++) {
-      let produto = produtos[i];
-      if(produto.id == id)
-        return produto;
-    }
-    return null;
+  getProduto(id: number): Observable<Produto> {
+    return this.http.get<Produto>(`${this.URL}/${id}`);
   }
 
-  setProduto(produto: Produto) {
-    // isto em condições reais seria um update no banco via query
-    for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-      if(this.PRODUTOS[i].id == produto.id) {
-        this.PRODUTOS[i].name = produto.name;
-        this.PRODUTOS[i].symbol = produto.symbol;
-      }
-    }
-  }
+  // getProdutos(): Produto[] {
+  //   return this.PRODUTOS;
+  // }
 
-  obterNovoId() {
-    let aux = [];
-    for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-      aux.push( this.PRODUTOS[i].id );
-    }
-    return Math.max.apply(null, aux) + 1;
-  }
+  // getProduto(id: number) {
+  //   let produtos: Produto[] = this.getProdutos();
+  //   for(let i=0 ; i<produtos.length ; i++) {
+  //     let produto = produtos[i];
+  //     if(produto.id == id)
+  //       return produto;
+  //   }
+  //   return null;
+  // }
 
-  obterNovoPosition() {
-    let aux = [];
-    for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-      aux.push( this.PRODUTOS[i].position );
-    }
-    return Math.max.apply(null, aux) + 1;
-  }  
+  setProduto(produto: Produto): Observable<Produto> {
+    // this.http.put<Produto>(
+    return this.http.put<Produto>(
+      `${this.URL}/${produto.id}`,
+      // `${this.URL}`,
+      // JSON.stringify(produto),
+      produto,
+      // {
+      //   acao: produto.acao,
+      //   name: produto.acao,
+      //   symbol: produto.symbol,
+      //   position: produto.position,
+      //   weight: produto.weight
+      // },
+      {headers: this.headers}
+    );
+  }
+  // setProduto(produto: Produto): void {
+  //   // isto em condições reais seria um update no banco via query
+  //   for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+  //     if(this.PRODUTOS[i].id == produto.id) {
+  //       this.PRODUTOS[i].name = produto.name;
+  //       this.PRODUTOS[i].symbol = produto.symbol;
+  //     }
+  //   }
+  // }
+
+  // obterNovoId() {
+  //   let aux = [];
+  //   for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+  //     aux.push( this.PRODUTOS[i].id );
+  //   }
+  //   return Math.max.apply(null, aux) + 1;
+  // }
+
+  // obterNovoPosition() {
+  //   let aux = [];
+  //   for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+  //     aux.push( this.PRODUTOS[i].position );
+  //   }
+  //   return Math.max.apply(null, aux) + 1;
+  // }  
 
   // inserirOuAtualizar(produto?: any) {
   //   debugger;
@@ -87,31 +122,39 @@ export class ProdutosService {
   //   }
   // }
 
-  inserirOuAtualizar(produto: Produto) {
-    debugger;
-    // se o produto tem id 0, então adicione ele como um novo registro
-    if(!produto.id || produto.id == 0) {
-      let aux = {
-        acao: null, 
-        id: this.obterNovoId(), 
-        position: this.obterNovoPosition(), 
-        name: produto.name, 
-        weight: 1.0079, 
-        symbol: produto.symbol
-      };
-      this.PRODUTOS.push(aux);
-      console.table(aux);
-      // alert("Registro Adicionado com Sucesso.");
-    }
-    // se o produto tem id maior que 0 então atualize ele
-    else {
-      for(let i=0 ; i<this.PRODUTOS.length ; i++) {
-        if(this.PRODUTOS[i].id == produto.id) {
-          this.PRODUTOS[i].name = produto.name;
-          this.PRODUTOS[i].symbol = produto.symbol;
-        }
-      }      
-    }
-    console.table(this.PRODUTOS);
-  }  
+  // inserirOuAtualizar(produto: Produto) {
+  //   debugger;
+  //   // se o produto tem id 0, então adicione ele como um novo registro
+  //   if(!produto.id || produto.id == 0) {
+  //     let aux = {
+  //       acao: null, 
+  //       id: this.obterNovoId(), 
+  //       position: this.obterNovoPosition(), 
+  //       name: produto.name, 
+  //       weight: 1.0079, 
+  //       symbol: produto.symbol
+  //     };
+  //     this.PRODUTOS.push(aux);
+  //     console.table(aux);
+  //     // alert("Registro Adicionado com Sucesso.");
+  //   }
+  //   // se o produto tem id maior que 0 então atualize ele
+  //   else {
+  //     for(let i=0 ; i<this.PRODUTOS.length ; i++) {
+  //       if(this.PRODUTOS[i].id == produto.id) {
+  //         this.PRODUTOS[i].name = produto.name;
+  //         this.PRODUTOS[i].symbol = produto.symbol;
+  //       }
+  //     }      
+  //   }
+  //   console.table(this.PRODUTOS);
+  // }
+
+  adicionarProduto(produto: Produto): Observable<Produto> {
+    return this.http.post<Produto>(
+      `${this.URL}`,
+      JSON.stringify(produto),
+      {headers: this.headers}
+    );
+  }
 }

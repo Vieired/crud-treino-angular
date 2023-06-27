@@ -1,18 +1,21 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+import { ProdutosComponent } from '../produtos.component';
 import { ProdutosService } from '../produtos.service';
+import { DataSource } from '@angular/cdk/collections';
 
-export interface PeriodicElement {
-  acao: string;
-  id: number;
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+// export interface PeriodicElement {
+//   acao: string;
+//   id: number;
+//   name: string;
+//   position: number;
+//   weight: number;
+//   symbol: string;
+// }
 
 @Component({
   selector: 'app-produtos-lista',
@@ -21,15 +24,21 @@ export interface PeriodicElement {
 })
 export class ProdutosListaComponent implements OnInit {
   displayedColumns: string[] = ['acao', 'position', 'name', 'weight', 'symbol'];
-  dataSource: any;
-  produtos: any;
-
+  dataSource: MatTableDataSource<Produto>;
+  // public PRODUTOS: Produto[];
+  
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  // @ViewChild(MatTable, {static: true}) table: MatTable<Produto>;
+  table: MatTable<Produto>;
 
   constructor(
     public dialog: MatDialog,
-    private produtosService: ProdutosService // injetando o serviço ProdutosService no construtor desta classe ProdutosListaComponent para poder se ultilizar dos métodos deste serviço
-    ) { }
+
+    // Injeta o serviço ProdutosService no construtor desta classe ProdutosListaComponent 
+    // para se ultilizar dos métodos deste serviço.
+    private produtosService: ProdutosService,
+    private produtosComponent: ProdutosComponent
+  ) { }
 
   adicionar() {
     localStorage.setItem('usandoModal', JSON.stringify(true));
@@ -43,11 +52,11 @@ export class ProdutosListaComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(x => {
-      this.atualizarGrid();
-      this.limparProdutoDoStorage()
+    dialogRef.afterClosed().subscribe(() => {
+      // this.atualizarGrid();
+      this.produtosComponent.atualizarGrid();
+      this.limparProdutoDoStorage();
     });
-    // alert("Registro Adicionado com Sucesso.");
   }
 
   editar(element: Produto) {
@@ -63,25 +72,49 @@ export class ProdutosListaComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(x => 
-      this.limparProdutoDoStorage()
-    );
+    dialogRef.afterClosed().subscribe(() => {
+      this.limparProdutoDoStorage();
+    });
   }
 
-  atualizarGrid() {
-    // debugger;
-    this.produtosService.getProdutos();
-  }
+  // atualizarGrid() {
+  //   // debugger;
+  //   // this.produtosService.getProdutos();
+  //   this.produtosComponent.listarProdutos();
+  // }
 
   limparProdutoDoStorage() {
     localStorage.removeItem('produtoEmEdicao');
     localStorage.setItem('usandoModal', JSON.stringify(false));
+    // this.dataSource.renderRows();
+    // if(this.table) this.table.renderRows()
   }
 
   ngOnInit() {
-    this.produtos = this.produtosService.getProdutos();
-    this.dataSource = new MatTableDataSource<PeriodicElement>(this.produtos);
-    this.dataSource.paginator = this.paginator;
+    this.limparProdutoDoStorage();
+
+    this.produtosService.listarProdutos()
+      .subscribe(retorno => {
+        this.dataSource = new MatTableDataSource<Produto>(retorno);
+        this.dataSource.paginator = this.paginator;
+      });
+
+    // let produtos = this.produtosComponent.PRODUTOS;
+    // this.dataSource = new MatTableDataSource<Produto>(produtos);
+    // this.dataSource.paginator = this.paginator;  
+
+    // console.log(this.produtosComponent);
+
+    // this.produtosService.listarProdutos()
+    //   .subscribe(retorno => {
+    //     this.PRODUTOS = retorno;
+    //     this.dataSource = new MatTableDataSource<Produto>(this.PRODUTOS);
+    //     this.dataSource.paginator = this.paginator;
+    //   });
+
+    // this.produtos = this.produtosService.getProdutos();
+    // this.dataSource = new MatTableDataSource<Produto>(this.produtos);
+    // this.dataSource.paginator = this.paginator;    
   }
 
 }
@@ -89,9 +122,11 @@ export class ProdutosListaComponent implements OnInit {
 
 
 
-
+// Template de um modal que renderiza o componente produtos-form dentro.
+// A variável appProdutosForm permite chamar os métodos do produtos-form 
+// em qualquer local deste template.
 @Component({
-  // selector: 'app-generic-dialog',
+  selector: 'app-generic-dialog',
   template: `
     <div class="row">
       <div class="col-10">

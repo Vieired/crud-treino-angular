@@ -70,7 +70,7 @@ import { HomeComponent } from './paginas/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ProdutosService, NavService],
+  providers: [ProdutosComponent, ProdutosService, NavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
